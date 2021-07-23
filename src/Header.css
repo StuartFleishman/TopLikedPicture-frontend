@@ -1,6 +1,6 @@
 
 .header {
-  height: 100px;
+  height: 66px;
   display: flex;
   align-items: center;
   background-color: black;
@@ -10,10 +10,9 @@
 }
 
 .header__logo {
-  width: 80px;
+  width: 45px;
   object-fit: contain;
   margin: 0 20px;
-  margin-top: 18px;
 }
 
 .header__search {
@@ -33,7 +32,7 @@
 .header__searchIcon {
   padding: 5px;
   height: 22px !important;
-  background-color: #cd9042;
+  background-color: lightblue
 }
 
 .header__optionLineOne {

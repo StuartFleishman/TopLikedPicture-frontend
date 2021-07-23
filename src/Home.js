@@ -1,12 +1,25 @@
-import React from 'react'
-import './Header.css'
+
+import React from "react";
+import "./Home.css";
 
 function Home() {
   return (
-    <div className='header'>
-      <img className="header_logo" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" />
-    </div>
-  )
-}
+    <div className="home">
+      <div className="home__container">
+        <img
+          className="home__image"
+          src="https://pngimg.com/uploads/triangle/triangle_PNG81.png"
+          alt=""
+        />
 
-export default Home
+        <div className="home__row" >
+          
+        </div>
+        
+     
+      </div>
+    </div>
+    );
+};
+
+export default Home;

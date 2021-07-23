@@ -11,13 +11,13 @@ function Header() {
       
         <img
           className="header__logo"
-          src="https://pngimg.com/uploads/zebra/zebra_PNG95994.png"
+          src="https://pngimg.com/uploads/triangle/triangle_PNG105.png"
         />
       
 
       <div className="header__search">
         <input className="header__searchInput" type="text" />
-        <SentimentSatisfiedAltIcon className="header__searchIcon" />
+        <SearchIcon className="header__searchIcon" />
       </div>
 
       <div className="header__nav">
