@@ -1,0 +1,29 @@
+.checkout {
+  display: flex;
+  align-content: center;
+}
+
+.checkout_text {
+  margin-top: auto;
+  align-items: center;
+  align-content: center;
+  margin-left: 600px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 50px;
+  padding-top: 20px;
+}
+
+.img {
+ 
+    width: 100%;
+    z-index: -1;
+    margin-bottom: -200px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  }
+
+  .che {
+    display: flex;
+  z-index: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+  }
