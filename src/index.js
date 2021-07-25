@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware, combineReducers} from 'redux';
+import thunk from 'redux-thunk'
+
+
+// const combineReducer = combineReducers({users: usersReducer, categories: categoriesReducer, pictures: picturesReducer, auth: authReducer })
+
+// const store = createStore(combineReducer, applyMiddleware(thunk))
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+   
+      <App />
+  
   </React.StrictMode>,
   document.getElementById('root')
 );

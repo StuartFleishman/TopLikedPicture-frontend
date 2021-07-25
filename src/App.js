@@ -9,10 +9,10 @@ import {
   Link
 } from "react-router-dom";
 import Checkout from './Checkout'
+import ProductForm from './ProductForm'
 
 function App() {
   return (
-    //BEM
     <Router>
       <div className="app">
       <Header />
@@ -23,6 +23,9 @@ function App() {
           </Route>
           <Route path='/checkout'>
             <Checkout />
+          </Route>
+          <Route path='/product/new'>
+            <ProductForm />
           </Route>
           
         </Switch>
