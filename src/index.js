@@ -6,18 +6,19 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk'
+import productsReducer from './reducers/productsReducer'
 
 
-// const combineReducer = combineReducers({users: usersReducer, categories: categoriesReducer, pictures: picturesReducer, auth: authReducer })
+const combineReducer = combineReducers({products: productsReducer})
 
-// const store = createStore(combineReducer, applyMiddleware(thunk))
+const store = createStore(combineReducer, applyMiddleware(thunk))
 
 
 ReactDOM.render(
   <React.StrictMode>
-   
+   <Provider store={store} >
       <App />
-  
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -19,7 +19,6 @@ function App() {
         <Switch>
           <Route exact path='/'>
           <Home />
-          <Header />
           </Route>
           <Route path='/checkout'>
             <Checkout />

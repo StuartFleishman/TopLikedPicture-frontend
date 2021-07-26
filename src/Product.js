@@ -2,26 +2,20 @@
 import React from "react";
 import "./Product.css";
 
-function Product({ id, title, image, price, rating }) {
+function Product({ id, name, price, description }) {
  
   return (
     <div className="product">
       <div className="product__info">
-        <p>{title}</p>
+        <p>{name}</p>
         <p className="product__price">
           <small>$</small>
           <strong>{price}</strong>
         </p>
-        <div className="product__rating">
-          {Array(rating)
-            .fill()
-            .map((_, i) => (
-              <p>🌟</p>
-            ))}
-        </div>
+       {description}
       </div>
 
-      <img src={image} alt="" />
+      <img src="" alt="" />
 
       <button>Add to Basket</button>
     </div>
