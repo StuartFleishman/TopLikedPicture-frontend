@@ -12,6 +12,14 @@ function Checkout(props) {
     return props.basket.map(product => <Product key={product.id} id={product.id} name={product.name} price={product.price} description={product.description} />)
   }
 
+  const renderPrice = () => {
+    if(props.basket.length > 1) {
+    const prices = props.basket.map(product => product.price)
+    const reducer = (accumulator, currentValue) => accumulator + currentValue
+    return prices.reduce(reducer)
+    }
+  }
+
 
   return (
     <div className="checkout">
@@ -29,7 +37,7 @@ function Checkout(props) {
       </div>
 
       <div className="checkout__right">
-          {<Subtotal />}
+          {<Subtotal price={renderPrice()} />}
       </div>
 
 
