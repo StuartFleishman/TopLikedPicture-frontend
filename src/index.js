@@ -7,9 +7,10 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk'
 import productsReducer from './reducers/productsReducer'
+import basketReducer from './reducers/basketReducer';
 
 
-const combineReducer = combineReducers({products: productsReducer})
+const combineReducer = combineReducers({products: productsReducer, basket: basketReducer})
 
 const store = createStore(combineReducer, applyMiddleware(thunk))
 
