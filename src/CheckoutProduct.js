@@ -1,10 +1,10 @@
-
 import React from "react";
 import "./Product.css";
 
-function Product({ id, name, price, description, addToBasket, inBasket }) {
+function CheckoutProduct({ id, name, price, description, deleteFromBasket }) {
 
-  
+
+ 
 
   const renderPrice = () => {
    return price.toFixed(2)
@@ -22,11 +22,10 @@ function Product({ id, name, price, description, addToBasket, inBasket }) {
       </div>
 
       <img src="" alt="" />
-      
-      {!inBasket ? <button onClick={() => addToBasket(id) }>Add to Basket</button> : <h6>already in basket</h6>}
+
+      {<button onClick={() => deleteFromBasket(id)}>Delete</button>}
     </div>
   );
 }
 
-export default Product;
-
+export default CheckoutProduct;

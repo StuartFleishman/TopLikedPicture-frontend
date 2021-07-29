@@ -51,8 +51,9 @@ function Header(props) {
 }
 
 const mapStateToProps = state => {
+
   return {
-    basket: state.basket
+    basket: state.basket.basket
   }
 }
 
