@@ -8,7 +8,7 @@ import {addToBasket} from './actions/basketAction'
 
 
 function Home(props) {
-  
+ 
   
   useEffect(() => {
     props.fetchProducts()

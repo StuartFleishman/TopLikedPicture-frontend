@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Checkout from './Checkout'
 import ProductForm from './ProductForm'
+import Admin from './Admin'
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
           <Home />
+          </Route>
+          <Route exact path='/admin'>
+          <Admin />
           </Route>
           <Route path='/checkout'>
             <Checkout />
