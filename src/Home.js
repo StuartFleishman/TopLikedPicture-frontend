@@ -45,6 +45,7 @@ function Home(props) {
 }
 
 const mapStateToProps = (state) => {
+  
   return {
    products: state.products,
    inBasket: state.basket.inBasket

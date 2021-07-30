@@ -1,29 +1,35 @@
 import React, { useState } from 'react'
+import {login} from './actions/adminAction'
+import { connect } from "react-redux"
+import { useHistory } from 'react-router-dom'
 
-function Admin() {
+function Admin(props) {
 
-  const [userName, setUserName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [userInput, setUserInput] = useState({
+    name: "", email: "", password: ""
+  })
+
+  let history = useHistory()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(userName, email, password)
+    props.login(userInput, history)
+    setUserInput({name: "", email: "", password: ""})
   }
 
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <label>UserName</label>
-        <input type="text" value={userName} onChange={(e) => setUserName(e.target.value) } />
+        <input type="text" value={userInput.name} onChange={(e) => setUserInput({...userInput, name: e.target.value}) } />
         <label>Email</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="email" value={userInput.email} onChange={(e) => setUserInput({...userInput, email: e.target.value})} />
         <label>Password</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" value={userInput.password} onChange={(e) => setUserInput({...userInput, password: e.target.value})} />
         <input type="submit" value="submit" />
       </form>
     </div>
   )
 }
 
-export default Admin
+export default connect(null, {login})(Admin)

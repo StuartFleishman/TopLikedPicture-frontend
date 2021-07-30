@@ -8,9 +8,10 @@ import {createStore, applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk'
 import productsReducer from './reducers/productsReducer'
 import basketReducer from './reducers/basketReducer';
+import adminReducer from './reducers/adminReducer'
 
 
-const combineReducer = combineReducers({products: productsReducer, basket: basketReducer})
+const combineReducer = combineReducers({products: productsReducer, basket: basketReducer, admin: adminReducer})
 
 const store = createStore(combineReducer, applyMiddleware(thunk))
 
