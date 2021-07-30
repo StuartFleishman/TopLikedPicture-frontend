@@ -1,6 +1,5 @@
 
 
-
 const unsuccesuflLogin = (error) => ({type: 'UN_SUCCESSFUL', payload: error})
 
 export const login = (admin, history) => {
@@ -30,5 +29,18 @@ export const login = (admin, history) => {
     }
     })
     
+  }
+}
+
+export const logoutAdmin = (history) => {
+  return (dispatch) => { 
+    fetch(`http://localhost:3001/logout`, {
+      method: 'DELETE'
+    })
+    .then(resp => resp.json())
+    .then(data => {
+      dispatch({type: 'LOGOUT'})
+      history.push('/admin')
+    })
   }
 }
