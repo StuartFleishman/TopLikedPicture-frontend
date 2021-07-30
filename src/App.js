@@ -11,6 +11,7 @@ import {
 import Checkout from './Checkout'
 import ProductForm from './ProductForm'
 import Admin from './Admin'
+import AdminHome from './AdminHome'
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
           <Home />
+          </Route>
+          <Route path='/admin/home'>
+          <AdminHome />
           </Route>
           <Route exact path='/admin'>
           <Admin />
