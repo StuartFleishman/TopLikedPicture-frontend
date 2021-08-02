@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './Admin.css'
 import {login} from './actions/adminAction'
 import { connect } from "react-redux"
 import { useHistory } from 'react-router-dom'
@@ -18,7 +19,10 @@ function Admin(props) {
   }
 
   return (
-    <div>
+    <div className="container" >
+      <div className="brand-logo"></div>
+      <div className="brand-title">ADMIN</div>
+      <div className="inputs">
       <form onSubmit={(e) => handleSubmit(e)}>
         <label>UserName</label>
         <input type="text" value={userInput.name} onChange={(e) => setUserInput({...userInput, name: e.target.value}) } />
@@ -28,6 +32,7 @@ function Admin(props) {
         <input type="password" value={userInput.password} onChange={(e) => setUserInput({...userInput, password: e.target.value})} />
         <input type="submit" value="submit" />
       </form>
+      </div>
     </div>
   )
 }

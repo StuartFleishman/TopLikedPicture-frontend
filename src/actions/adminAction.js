@@ -25,7 +25,7 @@ export const login = (admin, history) => {
       dispatch({
         type: 'AUTH_SUCCESSFUL', payload: {loggedIn: data.logged_in, currentUser: data.admin }
       })
-      history.push('/admin/home')
+      history.push('/home')
     }
     })
     

@@ -6,27 +6,30 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
+import { withRouter } from "react-router"
 import Checkout from './Checkout'
 import ProductForm from './ProductForm'
 import Admin from './Admin'
 import AdminHome from './AdminHome'
 
-function App() {
+const App = (props) => {
+  console.log(window.location.pathname)
   return (
     <Router>
       <div className="app">
-      <Header />
+          {window.location.pathname !== '/admin'  ? <Header/> : 
+          <Switch>
+           <Route path='/admin'> 
+          <Admin />
+          </Route>
+          </Switch>}
         <Switch>
           <Route exact path='/'>
           <Home />
           </Route>
-          <Route path='/admin/home'>
+          <Route path='/home'>
           <AdminHome />
-          </Route>
-          <Route exact path='/admin'>
-          <Admin />
           </Route>
           <Route path='/checkout'>
             <Checkout />
