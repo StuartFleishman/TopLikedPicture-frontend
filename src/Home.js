@@ -20,7 +20,7 @@ function Home(props) {
   }
 
   const renderProducts = () => {
-    return props.products.map(product => <Product key={product.id} id={product.id} name={product.name} price={product.price} description={product.description} inBasket={props.inBasket} addToBasket={findProduct} />)
+    return props.products.map(product => <Product key={product.id} id={product.id} basket={props.basket} name={product.name} price={product.price} image={product.image_url} description={product.description} addToBasket={findProduct} />)
   }
 
   
@@ -45,9 +45,10 @@ function Home(props) {
 }
 
 const mapStateToProps = (state) => {
+  
   return {
    products: state.products,
-   inBasket: state.basket.inBasket
+   basket: state.basket
   }
 }
 

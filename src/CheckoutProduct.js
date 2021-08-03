@@ -6,9 +6,9 @@ function CheckoutProduct({ id, name, price, description, deleteFromBasket }) {
 
  
 
-  const renderPrice = () => {
-   return price.toFixed(2)
-  }
+  // const renderPrice = () => {
+  //  return price.toFixed(2)
+  // }
  
   return (
     <div className="product">
@@ -16,7 +16,7 @@ function CheckoutProduct({ id, name, price, description, deleteFromBasket }) {
         <p>{name}</p>
         <p className="product__price">
           <small>$</small>
-          <strong>{renderPrice()}</strong>
+          <strong>{price}</strong>
         </p>
        {description}
       </div>

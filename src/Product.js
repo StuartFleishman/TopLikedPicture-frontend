@@ -1,14 +1,21 @@
 
 import React from "react";
+
 import "./Product.css";
 
-function Product({ id, name, price, description, addToBasket, inBasket }) {
+function Product({ id, name, price, description, addToBasket, image, basket }) {
 
   
 
   // const renderPrice = () => {
   //  return price.toFixed(2)
   // }
+
+ 
+  
+
+  
+  
  
   return (
     <div className="product">
@@ -21,9 +28,9 @@ function Product({ id, name, price, description, addToBasket, inBasket }) {
        {description}
       </div>
 
-      <img src="" alt="" />
+      <img src={image} height={100} width={100} />
       
-      {!inBasket ? <button className="product" onClick={() => addToBasket(id) }>Add to Basket</button> : <h6>already in basket</h6>}
+       {!basket.basket.find(b=> b.id === id) ? <button className="product" onClick={() => addToBasket(id) }>Add to Basket</button> : <h3>item in basket</h3>}
     </div>
   );
 }
