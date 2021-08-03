@@ -16,7 +16,8 @@ function Subtotal({price}) {
   return (
     <div className="subtotal">
       <h1>Subtotal : ${renderPrice()} </h1>
-      <button> <strong>CHECKOUT</strong> <SentimentSatisfiedAltIcon /> </button>
+      <br></br>
+      <button className="product" value="checkout"> <strong className="checkout__button">CHECKOUT</strong> </button>
     </div>
   );
 }

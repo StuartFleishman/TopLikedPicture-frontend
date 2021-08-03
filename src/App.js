@@ -7,14 +7,12 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { withRouter } from "react-router"
 import Checkout from './Checkout'
 import ProductForm from './ProductForm'
 import Admin from './Admin'
 import AdminHome from './AdminHome'
 
 const App = (props) => {
-  console.log(window.location.pathname)
   return (
     <Router>
       <div className="app">

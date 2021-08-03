@@ -40,10 +40,20 @@
   margin-top: 30px;
 }
 
-label, input, button {
+label, input{
   font-family: 'Indie Flower', cursive;
   display: block;
   width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+button {
+  font-family: 'Indie Flower', cursive;
+  display: block;
+  width: 5%;
   padding: 0;
   border: none;
   outline: none;
@@ -73,7 +83,8 @@ input {
 }
 
 button {
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-left: 200px;
   background: #1DA1F2;
   height: 40px;
   border-radius: 20px;

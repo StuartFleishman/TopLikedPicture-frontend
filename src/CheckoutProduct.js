@@ -23,7 +23,7 @@ function CheckoutProduct({ id, name, price, description, deleteFromBasket }) {
 
       <img src="" alt="" />
 
-      {<button onClick={() => deleteFromBasket(id)}>Delete</button>}
+      {<button className="product" onClick={() => deleteFromBasket(id)}>Delete</button>}
     </div>
   );
 }
