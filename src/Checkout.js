@@ -26,7 +26,7 @@ function Checkout({cart, deleteFromBasket}) {
   }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
 
   const renderProducts = () => {
-    return cart.map(product => <CheckoutProduct key={product.id} id={product.id} updateSubTotal={updateSubTotal} qty={product.qty}  quantity={product.quantity}  name={product.name} price={product.price} description={product.description} deleteFromBasket={deleteFromBasket} />)
+    return cart.map(product => <CheckoutProduct key={product.id} id={product.id} image={product.image_url} updateSubTotal={updateSubTotal} qty={product.qty}  quantity={product.quantity}  name={product.name} price={product.price} description={product.description} deleteFromBasket={deleteFromBasket} />)
   }
 
   const renderPrice = () => {
@@ -69,7 +69,6 @@ function Checkout({cart, deleteFromBasket}) {
 }
 
 const mapStateToProps = state => {
- 
   return {
     cart: state.products.cart
   }

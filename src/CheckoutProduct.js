@@ -4,14 +4,15 @@ import { connect } from "react-redux"
 import "./Product.css";
 import {addToBasket, removeFromCart, adjustItemQty} from './actions/basketAction'
 
-function CheckoutProduct({ id, name, price, description, deleteFromBasket, quantity, removeFromCart, qty, adjustItemQty}) {
+function CheckoutProduct({ id, name, price, description, deleteFromBasket, quantity, removeFromCart, qty, adjustItemQty, image}) {
 
 
   const [input, setInput] = useState(1)
 
   const onChangeHandler = e => {
-    setInput(e.target.value)
-    adjustItemQty(id, e.target.value)
+    if(e.target.value <= quantity)
+    {setInput(e.target.value)
+    adjustItemQty(id, e.target.value)}
   }
  
   return (
@@ -25,6 +26,8 @@ function CheckoutProduct({ id, name, price, description, deleteFromBasket, quant
        {description}
       </div>
 
+      <img src={image} height={100} width={100} />
+
       <label htmlFor="qty">Qty</label>
           <input
             min="1"
@@ -34,12 +37,6 @@ function CheckoutProduct({ id, name, price, description, deleteFromBasket, quant
             value={input}
             onChange={onChangeHandler}
           />
-
-      <img src="" alt="" />
-
-      {/* <button onClick={() => setCount(count => count > 0 ? count - 1 : count )}> -</button>
-      <button onClick={() => setCount(count => count < quantity ? count + 1 : count ) }> +</button>
-      <h1>{count}</h1> */}
 
       {<button className="product" onClick={() => removeFromCart(id)}>Delete</button>}
     </div>
