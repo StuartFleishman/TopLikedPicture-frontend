@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './Checkout.css'
 import Subtotal from './Subtotal'
 import Product from './Product'
@@ -7,27 +7,44 @@ import { connect } from "react-redux"
 import {deleteFromBasket} from './actions/basketAction'
 
 
-function Checkout(props) {
+function Checkout({cart, deleteFromBasket}) {
 
+  const [totalPrice, setTotalPrice] = useState(0)
+  const [totalItems, setTotalItems] = useState(0)
+
+  useEffect(() => {
+    let items = 0;
+    let price = 0;
+
+    cart.forEach((item) => {
+      items += item.qty;
+      price += item.qty * item.price;
+    });
+
+    setTotalItems(items);
+    setTotalPrice(price);
+  }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
 
   const renderProducts = () => {
-    return props.basket.map(product => <CheckoutProduct key={product.id} id={product.id} name={product.name} price={product.price} description={product.description} deleteFromBasket={props.deleteFromBasket} />)
+    return cart.map(product => <CheckoutProduct key={product.id} id={product.id} updateSubTotal={updateSubTotal} qty={product.qty}  quantity={product.quantity}  name={product.name} price={product.price} description={product.description} deleteFromBasket={deleteFromBasket} />)
   }
 
   const renderPrice = () => {
-    if(props.basket.length >= 1) {
-    const prices = props.basket.map(product => product.price)
+    if(cart.length >= 1) {
+    const prices = cart.map(product => product.price)
     const reducer = (accumulator, currentValue) => accumulator + currentValue
-    return prices.reduce(reducer)
+    return prices.reduce(reducer) 
     }
+  }
+
+  const updateSubTotal = (count) => {
+    return renderPrice(count)
   }
 
 
   return (
     <div className="checkout">
       <div className="checkout__left">
-        {/* <img className="checkout__ad"
-        src="" /> */}
         <div>
           <h2 className="checkout__title">
              shopping Basket
@@ -41,7 +58,7 @@ function Checkout(props) {
       </div>
 
       <div className="checkout__right">
-          {<Subtotal price={renderPrice()} />}
+          {<Subtotal price={totalPrice} items={totalItems} />}
       </div>
 
 
@@ -54,7 +71,7 @@ function Checkout(props) {
 const mapStateToProps = state => {
  
   return {
-    basket: state.basket.basket
+    cart: state.products.cart
   }
 }
 

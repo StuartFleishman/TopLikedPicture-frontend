@@ -1,9 +1,10 @@
 
-import React from "react";
-
+import React, { useState, useEffect } from 'react'
+import { connect } from "react-redux";
+import {addToCart} from './actions/basketAction'
 import "./Product.css";
 
-function Product({ id, name, price, description, addToBasket, image, basket }) {
+function Product({ id, name, price, description, addToBasket, image, cart, quantity, addToCart }) {
 
   
 
@@ -26,14 +27,14 @@ function Product({ id, name, price, description, addToBasket, image, basket }) {
           <strong>{price}</strong>
         </p>
        {description}
+  <h4>in stock {quantity}</h4>
       </div>
-
       <img src={image} height={100} width={100} />
       
-       {!basket.basket.find(b=> b.id === id) ? <button className="product" onClick={() => addToBasket(id) }>Add to Basket</button> : <h3>item in basket</h3>}
+       {!cart.find(b=> b.id === id) ? <button className="product" onClick={() => addToCart(id) }>Add to Basket</button> : <h3>item in basket</h3>}
     </div>
   );
 }
 
-export default Product;
+export default connect(null, {addToCart})(Product);
 

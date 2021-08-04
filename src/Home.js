@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import "./Home.css";
 import Product from "./Product";
 import {fetchProducts} from "./actions/productsAction"
-import {addToBasket} from './actions/basketAction'
+import {addToBasket, addToCart} from './actions/basketAction'
 
 
 
@@ -20,7 +20,7 @@ function Home(props) {
   }
 
   const renderProducts = () => {
-    return props.products.map(product => <Product key={product.id} id={product.id} basket={props.basket} name={product.name} price={product.price} image={product.image_url} description={product.description} addToBasket={findProduct} />)
+    return props.products.map(product => <Product key={product.id} id={product.id} cart={props.cart} quantity={product.quantity} name={product.name} price={product.price} image={product.image_url} description={product.description} addToBasket={findProduct} />)
   }
 
   
@@ -45,10 +45,10 @@ function Home(props) {
 }
 
 const mapStateToProps = (state) => {
-  
+
   return {
-   products: state.products,
-   basket: state.basket
+   products: state.products.products,
+   cart: state.products.cart
   }
 }
 
