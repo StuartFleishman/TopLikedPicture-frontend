@@ -7,7 +7,7 @@ import { connect } from "react-redux"
 
 import {Link} from 'react-router-dom'
 
-function Header({ cart }) { 
+function Header({ cart, user, loggedIn }) { 
   
   const [cartCount, setCartCount] = useState(0)
 
@@ -35,8 +35,17 @@ function Header({ cart }) {
       <div className="header__nav">
         <Link to="/login">
           <div className="header__option">
+            { !loggedIn ?
+            <>
             <span className="header__optionLineOne">Hello Guest</span>
             <span className="header__optionLineTwo">Sign In</span>
+            </>
+            :
+            <>
+            <span className="header__optionLineOne">Hello</span>
+            <span className="header__optionLineTwo"> {user.name} </span>
+            </>
+            }
           </div>
         </Link>
 
@@ -63,7 +72,9 @@ function Header({ cart }) {
 const mapStateToProps = state => {
 
   return {
-    cart: state.products.cart
+    cart: state.products.cart,
+    user: state.user.currentUser, 
+    loggedIn: state.user.loggedIn
   }
 }
 

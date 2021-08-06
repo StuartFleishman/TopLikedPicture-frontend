@@ -12,6 +12,7 @@ import ProductForm from './ProductForm'
 import Admin from './Admin'
 import AdminHome from './AdminHome'
 import Login from './Login'
+import Signup from './Signup'
 
 const App = (props) => {
   return (
@@ -38,6 +39,9 @@ const App = (props) => {
           </Route>
           <Route path='/product/new'>
             <ProductForm />
+          </Route>
+          <Route path='/signup'>
+            <Signup />
           </Route>
           
         </Switch>

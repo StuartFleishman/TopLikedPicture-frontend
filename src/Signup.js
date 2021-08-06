@@ -1,15 +1,21 @@
 import React, {useState} from 'react'
-import './Login.css'
 import {Link} from "react-router-dom";
+import {createUser } from './actions/userAction'
+import { connect } from "react-redux"
+import { useHistory } from 'react-router-dom'
 
-const Login = () => {
+function Signup({createUser}) {
 
+  let history = useHistory()
+  
+  
   const [userInput, setUserInput] = useState({
-    username: "", email: "", password: ""
+    name: "", email: "", password: "", password_confirmation: ""
   })
 
   const handleSubmit = e => {
     e.preventDefault()
+    createUser(userInput, history)
     console.log(userInput)
   }
 
@@ -22,11 +28,11 @@ const Login = () => {
         src="http://pngimg.com/uploads/triangle/triangle_PNG44.png" />
       </Link>
       <div className="login__container">
-        <h1 className="signin__title">Sign-in</h1>
+        <h1 className="signin__title">Create An Account</h1>
         <br></br>
         <form onSubmit={(e) => handleSubmit(e)}>
             <h5>UserName</h5>
-            <input value={userInput.username} onChange={(e) => setUserInput({...userInput, username: e.target.value})} type="text" />
+            <input value={userInput.name} onChange={(e) => setUserInput({...userInput, name: e.target.value})} type="text" />
             <br></br>
             <h5>Email</h5>
             <input value={userInput.email} onChange={(e) => setUserInput({...userInput, email: e.target.value})} type="email" />
@@ -34,16 +40,16 @@ const Login = () => {
             <h5>Password</h5>
             <input value={userInput.password} onChange={(e) => setUserInput({...userInput, password: e.target.value})}  type="password" />
             <br></br>
-            <input className="signin" type="submit" value="SIGN-IN" />
+            <h5>Password Confirmation</h5>
+            <input value={userInput.password_confirmation} onChange={(e) => setUserInput({...userInput, password_confirmation: e.target.value})}  type="password" />
+            <input className="signin" type="submit" value="SIGN-UP" />
         </form>
         
       </div>
       <br></br>
-      <Link to="/signup">
-        <button className="create__account" value="CREATE AN ACCOUNT">CREATE AN ACCOUNT </button>
-      </Link>
+   
     </div>
   )
 }
 
-export default Login
+export default connect(null, {createUser})(Signup)

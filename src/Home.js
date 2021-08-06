@@ -55,7 +55,7 @@ function Home(props) {
 }
 
 const mapStateToProps = (state) => {
-
+  
   return {
    products: state.products.products,
    cart: state.products.cart
