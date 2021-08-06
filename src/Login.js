@@ -1,15 +1,21 @@
 import React, {useState} from 'react'
 import './Login.css'
 import {Link} from "react-router-dom";
+import {login } from './actions/userAction'
+import { connect } from "react-redux"
+import { useHistory } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({login, message}) => {
 
   const [userInput, setUserInput] = useState({
-    username: "", email: "", password: ""
+    name: "", email: "", password: ""
   })
+
+  let history = useHistory()
 
   const handleSubmit = e => {
     e.preventDefault()
+    login(userInput, history)
     console.log(userInput)
   }
 
@@ -26,7 +32,7 @@ const Login = () => {
         <br></br>
         <form onSubmit={(e) => handleSubmit(e)}>
             <h5>UserName</h5>
-            <input value={userInput.username} onChange={(e) => setUserInput({...userInput, username: e.target.value})} type="text" />
+            <input value={userInput.name} onChange={(e) => setUserInput({...userInput, name: e.target.value})} type="text" />
             <br></br>
             <h5>Email</h5>
             <input value={userInput.email} onChange={(e) => setUserInput({...userInput, email: e.target.value})} type="email" />
@@ -39,6 +45,9 @@ const Login = () => {
         
       </div>
       <br></br>
+      <div style={{color: 'red'}}>
+      {message}
+      </div>
       <Link to="/signup">
         <button className="create__account" value="CREATE AN ACCOUNT">CREATE AN ACCOUNT </button>
       </Link>
@@ -46,4 +55,10 @@ const Login = () => {
   )
 }
 
-export default Login
+const mapStateToProps = state => {
+  return {
+    message: state.user.message
+  }
+}
+
+export default connect(mapStateToProps, {login})(Login)

@@ -60,6 +60,7 @@ export const createUser = (user, history) => {
 }
 
 export const login = (user, history) => {
+ 
   return (dispatch) => {
     const configObj = {
       method: 'POST',
@@ -67,11 +68,10 @@ export const login = (user, history) => {
         "Content-Type": "application/json",
         "Accepts": "application/json"
       },
-      credentials: 'include',
       body: JSON.stringify({user: user})
     }
 
-    fetch("http://127.0.0.1:3001/sessions", configObj)
+    fetch("http://127.0.0.1:3001/usersessions", configObj)
     .then(resp => resp.json())
     .then(data => {
       if (data.status === 401){
@@ -81,7 +81,7 @@ export const login = (user, history) => {
       dispatch({
         type: 'AUTH_SUCCESSFUL', payload: {loggedIn: data.logged_in, currentUser: data.user }
       })
-      history.push('/pictures/new')
+      history.push('/')
     }
     })
     

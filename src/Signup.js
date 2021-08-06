@@ -4,7 +4,7 @@ import {createUser } from './actions/userAction'
 import { connect } from "react-redux"
 import { useHistory } from 'react-router-dom'
 
-function Signup({createUser}) {
+function Signup({createUser, message}) {
 
   let history = useHistory()
   
@@ -47,9 +47,17 @@ function Signup({createUser}) {
         
       </div>
       <br></br>
-   
+      <ul>
+      {message.map((m, idx)=> <li key={idx} style={{color: 'red'}}> {m}</li>)}
+      </ul>
     </div>
   )
 }
 
-export default connect(null, {createUser})(Signup)
+const mapStateToProps = state => {
+  return {
+    message: state.user.message
+  }
+}
+
+export default connect(mapStateToProps, {createUser})(Signup)
