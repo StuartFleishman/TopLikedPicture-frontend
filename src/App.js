@@ -16,20 +16,20 @@ const App = (props) => {
   return (
     <Router>
       <div className="app">
-          {window.location.pathname !== '/admin'  ? <Header/> : 
+          
           <Switch>
            <Route path='/admin'> 
           <Admin />
           </Route>
-          </Switch>}
-        <Switch>
           <Route exact path='/'>
+          <Header/> 
           <Home />
           </Route>
           <Route path='/home'>
           <AdminHome />
           </Route>
           <Route path='/checkout'>
+            <Header/> 
             <Checkout />
           </Route>
           <Route path='/product/new'>

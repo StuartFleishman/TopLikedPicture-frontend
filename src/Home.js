@@ -20,7 +20,13 @@ function Home(props) {
   }
 
   const renderProducts = () => {
-    return props.products.map(product => <Product key={product.id} id={product.id} cart={props.cart} quantity={product.quantity} name={product.name} price={product.price} image={product.image_url} description={product.description} addToBasket={findProduct} />)
+    const productArray =  props.products.map(product => <Product key={product.id} id={product.id} cart={props.cart} quantity={product.quantity} name={product.name} price={product.price} image={product.image_url} description={product.description} addToBasket={findProduct} />)
+    return productArray.slice(0, 5)
+  }
+
+  const renderOtherProducts = () => {
+    const productArray =  props.products.map(product => <Product key={product.id} id={product.id} cart={props.cart} quantity={product.quantity} name={product.name} price={product.price} image={product.image_url} description={product.description} addToBasket={findProduct} />)
+    return productArray.slice(5)
   }
 
   
@@ -37,6 +43,10 @@ function Home(props) {
     
         <div className="home__row">
           {renderProducts()}
+        </div>
+
+        <div className="home__row">
+          {renderOtherProducts() }
         </div>
 
       </div>

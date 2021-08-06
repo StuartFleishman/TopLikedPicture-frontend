@@ -5,7 +5,7 @@ export default function productsReducer(state = {products: [], cart: [], current
       return {...state, products: action.payload}
     }
     case 'ADD_PRODUCT': {
-      return [...state, action.payload]
+      return {...state, products: [...state.products, action.payload] }
     }
 
     case 'ADD_TO_CART':
