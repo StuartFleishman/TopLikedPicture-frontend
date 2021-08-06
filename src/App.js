@@ -11,6 +11,7 @@ import Checkout from './Checkout'
 import ProductForm from './ProductForm'
 import Admin from './Admin'
 import AdminHome from './AdminHome'
+import Login from './Login'
 
 const App = (props) => {
   return (
@@ -19,14 +20,17 @@ const App = (props) => {
           
           <Switch>
            <Route path='/admin'> 
-          <Admin />
+            <Admin />
           </Route>
-          <Route exact path='/'>
+          <Route path='/login'> 
+            <Login />
+          </Route>
+            <Route exact path='/'>
           <Header/> 
-          <Home />
+            <Home />
           </Route>
           <Route path='/home'>
-          <AdminHome />
+            <AdminHome />
           </Route>
           <Route path='/checkout'>
             <Header/> 
