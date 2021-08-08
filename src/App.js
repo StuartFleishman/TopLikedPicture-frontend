@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css';
 import Header from './Header'
 import Home from './Home'
@@ -13,8 +13,24 @@ import Admin from './Admin'
 import AdminHome from './AdminHome'
 import Login from './Login'
 import Signup from './Signup'
+import { auth } from "./firebase"
+import {loginUser, logout} from './actions/userAction'
+import { connect } from "react-redux"
 
 const App = (props) => {
+
+  useEffect(() => {
+    auth.onAuthStateChanged(authUser => {
+      console.log('THE USER is', authUser)
+      
+      if (authUser) {
+          loginUser(authUser)
+      } else {
+        logout(null)
+      }
+    })
+  }, [])
+
   return (
     <Router>
       <div className="app">
@@ -50,4 +66,4 @@ const App = (props) => {
   );
 }
 
-export default App;
+export default connect(null, {loginUser, logout})(App)

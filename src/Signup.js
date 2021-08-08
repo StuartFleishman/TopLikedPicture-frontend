@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {createUser } from './actions/userAction'
 import { connect } from "react-redux"
 import { useHistory } from 'react-router-dom'
+import { auth } from "./firebase"
 
 function Signup({createUser, message}) {
 
@@ -15,8 +16,14 @@ function Signup({createUser, message}) {
 
   const handleSubmit = e => {
     e.preventDefault()
-    createUser(userInput, history)
-    console.log(userInput)
+    // createUser(userInput, history)
+    auth.createUserWithEmailAndPassword(userInput.email, userInput.password)
+    .then((auth) => {
+      if (auth) {
+        history.push('/')
+      }
+    })
+    .catch(error => alert(error.message))
   }
 
 

@@ -6,6 +6,10 @@ const unsuccesuflLogin = (error) => ({type: 'UN_SUCCESSFUL', payload: error})
 
 const unsuccesuflCreate = (error) => ({type: 'UN_SUCCESSFUL_CREATE', payload: error})
 
+export const loginUser = user => ({type: 'LOGIN_SUCCESSFUL', payload: user})
+
+export const logout = user => ({type: 'LOGOUT', payload: user})
+
 export const logoutUser = () => {
   return (dispatch) => { 
     fetch(`http://localhost:3001/logout`, {

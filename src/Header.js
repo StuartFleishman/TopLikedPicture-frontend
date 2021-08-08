@@ -4,10 +4,14 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
 import { connect } from "react-redux"
+import { auth } from "./firebase"
+import { useHistory } from 'react-router-dom'
 
 import {Link} from 'react-router-dom'
 
 function Header({ cart, user, loggedIn }) { 
+
+  let history = useHistory()
   
   const [cartCount, setCartCount] = useState(0)
 
@@ -16,6 +20,14 @@ function Header({ cart, user, loggedIn }) {
     cart.forEach(item => { count += item.qty})
     setCartCount(count)
   }, [cart, cartCount])
+
+
+  const handleAuthentication = () => {
+    if (user) {
+      auth.signOut()
+      history.push('/')
+    }
+  }
   
 
   return (
@@ -42,8 +54,8 @@ function Header({ cart, user, loggedIn }) {
             </>
             :
             <>
-            <span className="header__optionLineOne">Hello</span>
-            <span className="header__optionLineTwo"> {user.name} </span>
+            <span className="header__optionLineOne">{user.user.user.email}</span>
+            <span onClick={() => handleAuthentication} className="header__optionLineTwo"> Sign Out </span>
             </>
             }
           </div>
@@ -70,10 +82,10 @@ function Header({ cart, user, loggedIn }) {
 }
 
 const mapStateToProps = state => {
-
+  
   return {
     cart: state.products.cart,
-    user: state.user.currentUser, 
+    user: state.user,
     loggedIn: state.user.loggedIn
   }
 }

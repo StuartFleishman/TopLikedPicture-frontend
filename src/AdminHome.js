@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import {createProduct} from './actions/productsAction'
 
 
+
 function AdminHome(props) {
   
   let history = useHistory()
@@ -24,14 +25,18 @@ function AdminHome(props) {
     formData.append('price', productInput.price);
     formData.append('quantity', productInput.quantity);
 
-    props.createProduct(formData, history)
+    // props.createProduct(formData, history)
+
+    
 
     
   }
+
+
   
   return (
     <div>
-      {props.admin ? 
+   
       <>
       <button onClick={() => props.logoutAdmin(history)}>LogOut</button>
       <div className="container">
@@ -53,7 +58,7 @@ function AdminHome(props) {
       </form>
       </div>
       </>
-      : <h4>log in dude</h4>}
+    
     </div>
   )
 }

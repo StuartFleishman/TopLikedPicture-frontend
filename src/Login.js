@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import './Login.css'
 import {Link} from "react-router-dom";
-import {login } from './actions/userAction'
+import {login, loginUser } from './actions/userAction'
 import { connect } from "react-redux"
 import { useHistory } from 'react-router-dom'
+import { auth } from "./firebase"
 
-const Login = ({login, message}) => {
+const Login = ({login, message, loginUser}) => {
 
   const [userInput, setUserInput] = useState({
     name: "", email: "", password: ""
@@ -15,8 +16,15 @@ const Login = ({login, message}) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    login(userInput, history)
-    console.log(userInput)
+    // login(userInput, history)
+    auth.signInWithEmailAndPassword(userInput.email, userInput.password)
+    .then( auth => {
+      if (auth) {
+        loginUser(auth)
+        history.push('/')
+      }
+    })
+    .catch(error => alert(error.message))
   }
 
 
@@ -61,4 +69,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {login})(Login)
+export default connect(mapStateToProps, {login, loginUser})(Login)

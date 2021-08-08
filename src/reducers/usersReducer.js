@@ -1,29 +1,19 @@
-export default function userReducer(state = {loggedIn: false, currentUser: {}, error: false, message: []},action){
+export default function usersReducer(state = {user: null, loggedIn: false},action){
+  
   switch(action.type){
-    case 'AUTH_SUCCESSFUL':
-      return {
-        ...state,
-        loggedIn: action.payload.loggedIn,
-        currentUser: action.payload.currentUser,
-      }
-    case 'UN_SUCCESSFUL': 
+    
+    case 'LOGIN_SUCCESSFUL': {
       return {
         ...state, 
-        message: action.payload
-      }
-
-    case 'UN_SUCCESSFUL_CREATE': {
-      return {
-        ...state, 
-        message: action.payload
+        user: action.payload,
+        loggedIn: true
       }
     }
   
     case 'LOGOUT':
       return{
         ...state, 
-        loggedIn: false, 
-        currentUser: {},
+        user: null
       }
     default:
       return state
