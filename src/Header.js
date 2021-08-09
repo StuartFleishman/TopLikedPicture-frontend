@@ -51,8 +51,8 @@ function Header({ cart, user, loggedIn, logout }) {
             </>
             :
             <>
-            <span className="header__optionLineOne">{user.user.user.email}</span>
-            <span onClick={() => logout(null)} className="header__optionLineTwo"> Sign Out </span>
+            <span className="header__optionLineOne">{user.user?.email}</span>
+            <span onClick={() => auth.signOut()} className="header__optionLineTwo"> Sign Out </span>
             </>
             }
           </div>

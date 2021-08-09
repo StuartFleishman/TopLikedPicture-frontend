@@ -17,19 +17,18 @@ import { auth, firebaseApp } from "./firebase"
 import {loginUser, logout} from './actions/userAction'
 import { connect } from "react-redux"
 
-const App = ({user}) => {
+const App = ({user, loginUser, logout}) => {
 
   useEffect(() => {
+  
     auth.onAuthStateChanged(authUser => {
-      
-    
-      
       if (authUser) {
           loginUser(authUser)
       } else {
         logout(null)
       }
     })
+    
   }, [])
 
   return (
