@@ -13,15 +13,16 @@ import Admin from './Admin'
 import AdminHome from './AdminHome'
 import Login from './Login'
 import Signup from './Signup'
-import { auth } from "./firebase"
+import { auth, firebaseApp } from "./firebase"
 import {loginUser, logout} from './actions/userAction'
 import { connect } from "react-redux"
 
-const App = (props) => {
+const App = ({user}) => {
 
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
-      console.log('THE USER is', authUser)
+      
+    
       
       if (authUser) {
           loginUser(authUser)
@@ -66,4 +67,11 @@ const App = (props) => {
   );
 }
 
-export default connect(null, {loginUser, logout})(App)
+const mapStateToProps = state => {
+  
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps, {loginUser, logout})(App)

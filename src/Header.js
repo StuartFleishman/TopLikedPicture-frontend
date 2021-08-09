@@ -5,13 +5,11 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
 import { connect } from "react-redux"
 import { auth } from "./firebase"
-import { useHistory } from 'react-router-dom'
+import {logout} from './actions/userAction'
 
 import {Link} from 'react-router-dom'
 
-function Header({ cart, user, loggedIn }) { 
-
-  let history = useHistory()
+function Header({ cart, user, loggedIn, logout }) { 
   
   const [cartCount, setCartCount] = useState(0)
 
@@ -22,12 +20,11 @@ function Header({ cart, user, loggedIn }) {
   }, [cart, cartCount])
 
 
-  const handleAuthentication = () => {
-    if (user) {
-      auth.signOut()
-      history.push('/')
-    }
-  }
+  // const handleAuthentication = () => {
+   
+  //     // auth.signOut()
+  //     logout(null)
+  // }
   
 
   return (
@@ -55,7 +52,7 @@ function Header({ cart, user, loggedIn }) {
             :
             <>
             <span className="header__optionLineOne">{user.user.user.email}</span>
-            <span onClick={() => handleAuthentication} className="header__optionLineTwo"> Sign Out </span>
+            <span onClick={() => logout(null)} className="header__optionLineTwo"> Sign Out </span>
             </>
             }
           </div>
@@ -90,4 +87,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps, {logout})(Header)

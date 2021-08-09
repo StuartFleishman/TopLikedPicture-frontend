@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import {logoutAdmin} from './actions/adminAction'
 import { useHistory } from 'react-router-dom'
 import {createProduct} from './actions/productsAction'
-
+import {firebaseApp, storage} from './firebase'
 
 
 function AdminHome(props) {
@@ -18,17 +18,38 @@ function AdminHome(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const formData = new FormData()
-    formData.append('name', productInput.name);
-    formData.append('description', productInput.description);
-    formData.append('image_url', image);
-    formData.append('price', productInput.price);
-    formData.append('quantity', productInput.quantity);
+    // const formData = new FormData()
+    // formData.append('name', productInput.name);
+    // formData.append('description', productInput.description);
+    // formData.append('image_url', image);
+    // formData.append('price', productInput.price);
+    // formData.append('quantity', productInput.quantity);
 
     // props.createProduct(formData, history)
 
     
+   
 
+    const uploadPicture = storage.ref(`images/${productInput.name}`).put(image)
+    uploadPicture.on(
+      "state_changed",
+      snapshot => {},
+      error => {
+        console.log(error)
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(productInput.name)
+          .getDownloadURL()
+          .then(url => {
+            const productRef = firebaseApp.database().ref("product")
+            const product = {...productInput, image: url}
+            productRef.push(product)
+            history.push('/')
+          })
+      }
+    )
     
   }
 

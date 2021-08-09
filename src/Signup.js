@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
-import {createUser } from './actions/userAction'
+
 import { connect } from "react-redux"
 import { useHistory } from 'react-router-dom'
 import { auth } from "./firebase"
+import {loginUser } from './actions/userAction'
 
-function Signup({createUser, message}) {
+
+function Signup({createUser, loginUser}) {
 
   let history = useHistory()
   
@@ -20,6 +22,7 @@ function Signup({createUser, message}) {
     auth.createUserWithEmailAndPassword(userInput.email, userInput.password)
     .then((auth) => {
       if (auth) {
+        loginUser(auth)
         history.push('/')
       }
     })
@@ -55,7 +58,7 @@ function Signup({createUser, message}) {
       </div>
       <br></br>
       <ul>
-      {message.map((m, idx)=> <li key={idx} style={{color: 'red'}}> {m}</li>)}
+      {/* {message.map((m, idx)=> <li key={idx} style={{color: 'red'}}> {m}</li>)} */}
       </ul>
     </div>
   )
@@ -67,4 +70,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {createUser})(Signup)
+export default connect(mapStateToProps, {loginUser})(Signup)

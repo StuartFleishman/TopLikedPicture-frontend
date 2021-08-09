@@ -1,5 +1,5 @@
 export default function usersReducer(state = {user: null, loggedIn: false},action){
-  
+
   switch(action.type){
     
     case 'LOGIN_SUCCESSFUL': {
@@ -13,7 +13,8 @@ export default function usersReducer(state = {user: null, loggedIn: false},actio
     case 'LOGOUT':
       return{
         ...state, 
-        user: null
+        user: action.payload, 
+        loggedIn: false
       }
     default:
       return state

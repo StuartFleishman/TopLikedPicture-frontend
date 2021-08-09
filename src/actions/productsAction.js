@@ -1,6 +1,7 @@
-const url = `http://127.0.0.1:3001/products`
+// const url = `http://127.0.0.1:3001/products`
+const url = `https://store-app-2aa0a-default-rtdb.firebaseio.com/`
 
-const setProducts = (products) => ({type: "GOT_PRODUCTS", payload: products})
+export const setProducts = (products) => ({type: "GOT_PRODUCTS", payload: products})
 
 const addProduct = (product) => ({type: 'ADD_PRODUCT', payload: product})
 
@@ -9,6 +10,7 @@ export const fetchProducts = () => {
     fetch(url)
     .then(resp => resp.json())
     .then(products => {
+    
       dispatch(setProducts(products))
     })
   }
