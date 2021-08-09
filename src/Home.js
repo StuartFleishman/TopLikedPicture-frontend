@@ -14,12 +14,21 @@ function Home(props) {
   useEffect(() => {
     const productRef = firebaseApp.database().ref("product")
 
+    var key = firebaseApp.database().ref().push().getKey()
+
+    
+
     productRef.on("value", (data) => {
       const products = data.val()
+     
       const productList = []
       for (let val in products){
-        productList.push(products[val])
+        const pro = {...products[val], id: val}
+
+        productList.push(pro)
+       
       }
+      
       props.setProducts(productList)
     })
   }, []);

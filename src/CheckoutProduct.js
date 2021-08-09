@@ -10,9 +10,14 @@ function CheckoutProduct({ id, name, price, description, deleteFromBasket, quant
   const [input, setInput] = useState(1)
 
   const onChangeHandler = e => {
-    if(e.target.value <= quantity)
-    {setInput(e.target.value)
-    adjustItemQty(id, e.target.value)}
+
+    const quantityNumber = parseInt(quantity)
+  
+    if(e.target.value <= quantityNumber)
+      {
+        setInput(e.target.value)
+        adjustItemQty(id, e.target.value)
+      }
   }
  
   return (
