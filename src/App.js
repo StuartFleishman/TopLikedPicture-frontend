@@ -16,6 +16,7 @@ import Signup from './Signup'
 import { auth, firebaseApp } from "./firebase"
 import {loginUser, logout} from './actions/userAction'
 import { connect } from "react-redux"
+import Payment from './Payment';
 
 const App = ({user, loginUser, logout}) => {
 
@@ -59,6 +60,11 @@ const App = ({user, loginUser, logout}) => {
           <Route path='/signup'>
             <Signup />
           </Route>
+          <Route path='/payment'>
+            <Header />
+            <Payment/>
+          </Route>
+          
           
         </Switch>
       </div>
