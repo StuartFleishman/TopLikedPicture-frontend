@@ -3,10 +3,13 @@ import './Payment.css'
 import { connect } from "react-redux"
 import PaymentProducts from './PaymentProducts'
 import CheckoutProduct from './CheckoutProduct'
-import {Link} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
+import axios from './axios'
 
 function Payment({user, cart}) {
+
+  let history = useHistory()
 
   const [error, setError] = useState(null)
   const [disabled, setDisabled] = useState(true)
@@ -32,8 +35,14 @@ function Payment({user, cart}) {
     setTotalItems(items);
     setTotalPrice(price);
 
+    const finalTotal = totalPrice.toFixed(2)
+
     const getClientSecret = async () => {
-      const response = await axios 
+      const response = await axios({
+        method: 'post',
+        url: `/payments/create?total=${finalTotal * 100}`
+      })
+      setClientSecret(response.data.clientSecret)
     }
 
     getClientSecret()
@@ -58,7 +67,18 @@ function Payment({user, cart}) {
     e.preventDefault()
     setProcessing(true)
 
-    const payload = await stripe 
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement)
+      }
+    }).then(({ paymentIntent }) => {
+
+      setSucceeded(true)
+      setError(null)
+      setProcessing(false)
+
+      history.replace('/orders')
+    })
   }
 
   const handleChange = e => {
