@@ -17,6 +17,8 @@ import { auth, firebaseApp } from "./firebase"
 import {loginUser, logout} from './actions/userAction'
 import { connect } from "react-redux"
 import Payment from './Payment';
+import { loadStripe } from "@stripe/stripe-js"
+import { Elements } from "@stripe/react-stripe-js"
 
 const App = ({user, loginUser, logout}) => {
 
