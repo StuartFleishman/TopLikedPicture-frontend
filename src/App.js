@@ -19,6 +19,7 @@ import { connect } from "react-redux"
 import Payment from './Payment';
 import { loadStripe } from "@stripe/stripe-js"
 import { Elements } from "@stripe/react-stripe-js"
+import Orders from './Orders'
 
 const promise = loadStripe('pk_test_51JNIcRCZzbqBIQx8Vm4CijT94O04TALJ83gexf8HMEy3xP6VlqGc0Gv7ZjcV2cJTY3ac6raxsxcSqS5eTINtIzJN007wXhcPhD')
 
@@ -57,6 +58,10 @@ const App = ({user, loginUser, logout}) => {
           <Route path='/checkout'>
             <Header/> 
             <Checkout />
+          </Route>
+          <Route path='/orders'>
+            <Header/> 
+            <Orders />
           </Route>
           <Route path='/product/new'>
             <ProductForm />

@@ -42,6 +42,11 @@ export default function productsReducer(state = {products: [], cart: [], current
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload.id),
       };
+    case 'EMPTY_CART': 
+      return {
+        ...state,
+        cart: []
+      }
     default: 
       return state
   }

@@ -5,6 +5,8 @@ export const setProducts = (products) => ({type: "GOT_PRODUCTS", payload: produc
 
 const addProduct = (product) => ({type: 'ADD_PRODUCT', payload: product})
 
+export const emptyBasket = () => ({type: "EMPTY_CART"})
+
 export const fetchProducts = () => {
   return (dispatch) => { 
     fetch(url)

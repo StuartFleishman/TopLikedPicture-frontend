@@ -6,8 +6,9 @@ import CheckoutProduct from './CheckoutProduct'
 import {Link, useHistory} from "react-router-dom"
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import axios from './axios'
+import { emptyBasket } from './actions/productsAction'
 
-function Payment({user, cart}) {
+function Payment({user, cart, emptyBasket}) {
 
   let history = useHistory()
 
@@ -48,6 +49,8 @@ function Payment({user, cart}) {
     getClientSecret()
   }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems, cart]);
 
+  console.log("the clent scet",clientSecret)
+
   const renderProducts = () => {
     return cart.map(product => <CheckoutProduct key={product.id} id={product.id} image={product.image} qty={product.qty}  quantity={product.quantity}  name={product.name} price={product.price} description={product.description} />)
   }
@@ -76,6 +79,8 @@ function Payment({user, cart}) {
       setSucceeded(true)
       setError(null)
       setProcessing(false)
+
+      emptyBasket()
 
       history.replace('/orders')
     })
@@ -148,4 +153,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Payment)
+export default connect(mapStateToProps, {emptyBasket})(Payment)
