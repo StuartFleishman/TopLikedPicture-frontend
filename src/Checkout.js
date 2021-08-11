@@ -48,7 +48,7 @@ function Checkout({cart, deleteFromBasket}) {
       <div className="checkout__left">
         <div>
           <h2 className="checkout__title">
-             shopping Basket
+             Shopping Cart
           </h2>
           <div>
           <ol>

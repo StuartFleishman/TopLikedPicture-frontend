@@ -12,7 +12,7 @@ function Subtotal({price, items}) {
   return (
     <div className="subtotal">
       <h4>total items: {items}</h4>
-      <h1> Subtotal : ${price} </h1>
+      <h1> Subtotal : ${price.toFixed(2)} </h1>
       <br></br>
       <button onClick={e => history.push('/payment')} className="product" value="checkout"> <strong className="checkout__button">CHECKOUT</strong> </button>
     </div>
