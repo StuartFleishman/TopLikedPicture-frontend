@@ -7,6 +7,7 @@ import {Link, useHistory} from "react-router-dom"
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import axios from './axios'
 import { emptyBasket } from './actions/productsAction'
+import { db } from './firebase'
 
 function Payment({user, cart, emptyBasket}) {
 
@@ -76,6 +77,12 @@ function Payment({user, cart, emptyBasket}) {
       }
     }).then(({ paymentIntent }) => {
 
+      db.collection('users').doc(user.user?.uid).collection('orders').doc(paymentIntent.id).set({
+        cart: cart,
+        amount: paymentIntent.amount,
+        created: paymentIntent.created
+      })
+
       setSucceeded(true)
       setError(null)
       setProcessing(false)
@@ -85,6 +92,8 @@ function Payment({user, cart, emptyBasket}) {
       history.replace('/orders')
     })
   }
+
+  console.log(user)
 
   const handleChange = e => {
       setDisabled(e.empty)

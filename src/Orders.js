@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import './Orders.css'
 
 function Orders() {
+  
+  const [orders, setOrders] = useState([])
+
+  useEffect(() => {
+    
+  }, [])
+
+
   return (
-    <div>
-      in da orders 
+    <div className="orders">
+      <h1>Your Orders</h1>
     </div>
   )
 }
