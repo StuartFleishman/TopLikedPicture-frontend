@@ -4,8 +4,12 @@ import { connect } from "react-redux"
 import PaymentProducts from './PaymentProducts'
 import CheckoutProduct from './CheckoutProduct'
 import {Link} from "react-router-dom"
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 
 function Payment({user, cart}) {
+
+  const stripe = useStripe()
+  const elements = useElements()
 
   const renderProducts = () => {
     return cart.map(product => <CheckoutProduct key={product.id} id={product.id} image={product.image} qty={product.qty}  quantity={product.quantity}  name={product.name} price={product.price} description={product.description} />)
@@ -53,11 +57,15 @@ function Payment({user, cart}) {
           <div className="payment__title">
               <h3>Payment Method</h3>
           </div>
-        </div>
+        
         <div className="payment__details">
 
-        </div>
+          <form>
+            <CardElement />
+          </form>
 
+        </div>
+      </div>
       </div>
     </div>
   )

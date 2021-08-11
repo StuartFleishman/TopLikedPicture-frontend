@@ -20,6 +20,8 @@ import Payment from './Payment';
 import { loadStripe } from "@stripe/stripe-js"
 import { Elements } from "@stripe/react-stripe-js"
 
+const promise = loadStripe('pk_test_51JNIcRCZzbqBIQx8Vm4CijT94O04TALJ83gexf8HMEy3xP6VlqGc0Gv7ZjcV2cJTY3ac6raxsxcSqS5eTINtIzJN007wXhcPhD')
+
 const App = ({user, loginUser, logout}) => {
 
   useEffect(() => {
@@ -64,7 +66,9 @@ const App = ({user, loginUser, logout}) => {
           </Route>
           <Route path='/payment'>
             <Header />
-            <Payment/>
+            <Elements stripe={promise}>
+              <Payment/>
+            </Elements>
           </Route>
           
           
