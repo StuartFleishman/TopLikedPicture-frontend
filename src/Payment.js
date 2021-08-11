@@ -48,7 +48,7 @@ function Payment({user, cart, emptyBasket}) {
     }
 
     getClientSecret()
-  }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems, cart]);
+  }, [totalPrice, totalItems, setTotalPrice, setTotalItems, cart]);
 
   console.log("the clent scet",clientSecret)
 

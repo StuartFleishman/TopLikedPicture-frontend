@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import "./Product.css";
 import {addToBasket, removeFromCart, adjustItemQty} from './actions/basketAction'
 
-function CheckoutProduct({ id, name, price, description, deleteFromBasket, quantity, removeFromCart, qty, adjustItemQty, image}) {
+function CheckoutProduct({ id, name, price, description, hideButton, quantity, removeFromCart, qty, adjustItemQty, image}) {
 
 
   const [input, setInput] = useState(qty)
@@ -32,7 +32,8 @@ function CheckoutProduct({ id, name, price, description, deleteFromBasket, quant
       </div>
 
       <img src={image} height={100} width={100} />
-
+    {!hideButton && (
+      <>
       <label htmlFor="qty">Qty</label>
           <input
             min="1"
@@ -41,9 +42,11 @@ function CheckoutProduct({ id, name, price, description, deleteFromBasket, quant
             name="qty"
             value={input}
             onChange={onChangeHandler}
-          />
-
-      {<button className="product" onClick={() => removeFromCart(id)}>Delete</button>}
+          /> 
+        </>
+          )}
+      {!hideButton && (
+      <button className="product" onClick={() => removeFromCart(id)}>Delete</button>)}
     </div>
   );
 }
