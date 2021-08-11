@@ -3,6 +3,7 @@ import "./Subtotal.css";
 import { useHistory } from "react-router-dom"
 
 
+
 function Subtotal({price, items}) {
 
   const history = useHistory()

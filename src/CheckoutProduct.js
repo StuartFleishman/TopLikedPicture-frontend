@@ -7,7 +7,7 @@ import {addToBasket, removeFromCart, adjustItemQty} from './actions/basketAction
 function CheckoutProduct({ id, name, price, description, deleteFromBasket, quantity, removeFromCart, qty, adjustItemQty, image}) {
 
 
-  const [input, setInput] = useState(1)
+  const [input, setInput] = useState(qty)
 
   const onChangeHandler = e => {
 
