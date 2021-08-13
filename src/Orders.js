@@ -47,10 +47,10 @@ function Orders({user, cart}) {
       <h1>Your Orders</h1>
       <div className="orders__order">
           {orders?.map(order => (
-            <Order order={order} />
+            <Order order={order} price={totalPrice.toFixed(2)} />
           ))}
+           
       </div>
-      Order Total: ${totalPrice.toFixed(2)}
     </div>
   )
 }
