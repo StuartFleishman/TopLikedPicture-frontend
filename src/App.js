@@ -50,7 +50,7 @@ const App = ({user, loginUser, logout}) => {
           </Route>
             <Route exact path='/'>
           <Header/> 
-            <Home />
+          <Home />
           </Route>
           <Route path='/home'>
             <AdminHome />

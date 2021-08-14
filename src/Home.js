@@ -9,29 +9,31 @@ import {firebaseApp} from './firebase'
 
 
 function Home(props) {
+
+ 
  
   
-  useEffect(() => {
-    const productRef = firebaseApp.database().ref("product")
+  // useEffect(() => {
+  //   const productRef = firebaseApp.database().ref("product")
 
-    var key = firebaseApp.database().ref().push().getKey()
+  //   var key = firebaseApp.database().ref().push().getKey()
 
     
 
-    productRef.on("value", (data) => {
-      const products = data.val()
+  //   productRef.on("value", (data) => {
+  //     const products = data.val()
      
-      const productList = []
-      for (let val in products){
-        const pro = {...products[val], id: val}
+  //     const productList = []
+  //     for (let val in products){
+  //       const pro = {...products[val], id: val}
 
-        productList.push(pro)
+  //       productList.push(pro)
        
-      }
+  //     }
       
-      props.setProducts(productList)
-    })
-  }, []);
+  //     props.setProducts(productList)
+  //   })
+  // }, []);
 
   const findProduct = (id) => {
     const newProduct = props.products.find(product => product.id === id)
@@ -52,7 +54,7 @@ function Home(props) {
   
   return (
     <div className="home">
-      <div className="home__container">
+      {/* <div className="home__container">
       
         <img
           className="home__image"
@@ -68,7 +70,7 @@ function Home(props) {
           {renderOtherProducts() }
         </div>
 
-      </div>
+      </div> */}
     </div>
   );
 }
