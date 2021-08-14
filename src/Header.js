@@ -14,7 +14,7 @@ import './Home.css'
 import Product from './Product'
 import {addToBasket, addToCart} from './actions/basketAction'
 
-function Header({ cart, user, loggedIn, products, setProducts}) { 
+function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) { 
   
   const [cartCount, setCartCount] = useState(0)
 
@@ -36,6 +36,10 @@ function Header({ cart, user, loggedIn, products, setProducts}) {
       setProducts(productList)
     })
 
+    let count = 0
+    cart.forEach(item => { count += item.qty})
+    setCartCount(count)
+
     
   }, [cart, cartCount, searchBar, setProducts])
 
@@ -47,22 +51,22 @@ function Header({ cart, user, loggedIn, products, setProducts}) {
   const renderProducts = () => {
     const productArray =  products.filter((val) => { 
       if (searchBar == "") {
-      return val
+        return val
       } else if (val.name.toLowerCase().includes(searchBar.toLowerCase())) {
         return val
-       }
+      }
     }).map(product => {
-      
-    return <Product key={product.id} 
-             id={product.id} cart={cart} 
-             quantity={product.quantity} 
-             name={product.name} 
-             price={product.price} 
-             image={product.image} 
-             description={product.description} 
-             addToBasket={findProduct} />
-          })
-      return productArray.slice(0, 5)
+    return <Product 
+              key={product.id} 
+              id={product.id} 
+              cart={cart} 
+              quantity={product.quantity} 
+              name={product.name} 
+              price={product.price} 
+              image={product.image} 
+              description={product.description} 
+              addToBasket={findProduct} />})
+    return productArray.slice(0, 5)
   }
 
   const renderOtherProducts = () => {
@@ -128,10 +132,8 @@ function Header({ cart, user, loggedIn, products, setProducts}) {
         
       </div>
     </div>
-    
- 
+
           <div className="home">
-            
           <div className="home__container">
 
             <img
@@ -147,12 +149,10 @@ function Header({ cart, user, loggedIn, products, setProducts}) {
             <div className="home__row">
               {renderOtherProducts() }
             </div>
-            
+
           </div>
-          
           </div>
           </>
-          
   );
 }
 
@@ -166,4 +166,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {logout, setProducts})(Header)
+export default connect(mapStateToProps, {logout, setProducts, addToBasket})(Header)
