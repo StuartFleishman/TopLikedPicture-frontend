@@ -42,7 +42,12 @@ function Payment({user, cart, emptyBasket}) {
     const getClientSecret = async () => {
       const response = await axios({
         method: 'post',
-        url: `/payments/create?total=${finalTotal * 100}`
+        url: `/payments/create?total=${finalTotal * 100}`,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': "https://store-app-2aa0a.web.app/",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        }
       })
       setClientSecret(response.data.clientSecret)
     }
@@ -73,9 +78,11 @@ function Payment({user, cart, emptyBasket}) {
 
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
+        type: 'card',
         card: elements.getElement(CardElement)
       }
     }).then(({ paymentIntent }) => {
+      
 
       db.collection('users').doc(user.user?.uid).collection('orders').doc(paymentIntent.id).set({
         cart: cart,

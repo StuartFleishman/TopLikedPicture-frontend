@@ -20,6 +20,8 @@ import Payment from './Payment';
 import { loadStripe } from "@stripe/stripe-js"
 import { Elements } from "@stripe/react-stripe-js"
 import Orders from './Orders'
+import OrderHeader from './OrderHeader'
+import CheckOutHeader from './CheckOutHeader'
 
 const promise = loadStripe('pk_test_51JNIcRCZzbqBIQx8Vm4CijT94O04TALJ83gexf8HMEy3xP6VlqGc0Gv7ZjcV2cJTY3ac6raxsxcSqS5eTINtIzJN007wXhcPhD')
 
@@ -56,11 +58,11 @@ const App = ({user, loginUser, logout}) => {
             <AdminHome />
           </Route>
           <Route path='/checkout'>
-            <Header/> 
+            <CheckOutHeader /> 
             <Checkout />
           </Route>
           <Route path='/orders'>
-            <Header/> 
+            <OrderHeader/> 
             <Orders />
           </Route>
           <Route path='/product/new'>
@@ -70,7 +72,7 @@ const App = ({user, loginUser, logout}) => {
             <Signup />
           </Route>
           <Route path='/payment'>
-            <Header />
+            <CheckOutHeader />
             <Elements stripe={promise}>
               <Payment/>
             </Elements>

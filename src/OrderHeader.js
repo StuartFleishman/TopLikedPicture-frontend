@@ -14,7 +14,7 @@ import './Home.css'
 import Product from './Product'
 import {addToBasket, addToCart} from './actions/basketAction'
 
-function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) { 
+function OrderHeader({ cart, user, loggedIn, products, setProducts, addToBasket}) { 
   
   const [cartCount, setCartCount] = useState(0)
 
@@ -91,12 +91,7 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
           src="https://pngimg.com/uploads/triangle/triangle_PNG105.png"
         />
       </Link>
-    
-      <div className="header__search">
-        <input value={searchBar} onChange={(e) => setSearchBar(e.target.value)} className="header__searchInput" type="text" />
-        <SearchIcon className="header__searchIcon" />
-      </div>
-     
+
 
       <div className="header__nav">
         <Link to="/login">
@@ -115,11 +110,7 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
           </div>
         </Link>
 
-          <Link to="/orders">
-            <div className="header__option">
-              <span className="header__optionLineTwo">Orders</span>
-            </div>
-          </Link>
+     
         
         <Link to="/checkout">
           <div className="header__optionBasket">
@@ -146,11 +137,11 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
             />
 
             <div className="home__row">
-              {renderProducts()}
+            
             </div>
 
             <div className="home__row">
-              {renderOtherProducts() }
+             
             </div>
 
           </div>
@@ -170,4 +161,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {logout, setProducts, addToBasket})(Header)
+export default connect(mapStateToProps, {logout, setProducts, addToBasket})(OrderHeader)

@@ -14,7 +14,7 @@ import './Home.css'
 import Product from './Product'
 import {addToBasket, addToCart} from './actions/basketAction'
 
-function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) { 
+function CheckOutHeader({ cart, user, loggedIn, products, setProducts, addToBasket}) { 
   
   const [cartCount, setCartCount] = useState(0)
 
@@ -92,10 +92,7 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
         />
       </Link>
     
-      <div className="header__search">
-        <input value={searchBar} onChange={(e) => setSearchBar(e.target.value)} className="header__searchInput" type="text" />
-        <SearchIcon className="header__searchIcon" />
-      </div>
+
      
 
       <div className="header__nav">
@@ -146,11 +143,11 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
             />
 
             <div className="home__row">
-              {renderProducts()}
+         
             </div>
 
             <div className="home__row">
-              {renderOtherProducts() }
+             
             </div>
 
           </div>
@@ -170,4 +167,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {logout, setProducts, addToBasket})(Header)
+export default connect(mapStateToProps, {logout, setProducts, addToBasket})(CheckOutHeader)

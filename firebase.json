@@ -1,6 +1,8 @@
 {
   "hosting": {
     "public": "build",
+        "headers": [
+          {"source": "/service-worker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}]}],
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -17,5 +19,11 @@
     "predeploy": [
       "npm --prefix \"$RESOURCE_DIR\" run lint"
     ]
+  }, 
+  "emulators": {
+    "functions": {
+      "host": "HOST",
+      "port": "8000"
+    }
   }
 }
