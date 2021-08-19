@@ -42,7 +42,7 @@ function CheckoutProduct({ id, qty, updateInstock, quantity, name, price, descri
           <strong>{price}</strong>
         </p>
        {description}
-       <h6 style={{color: 'red'}}>{quantity} in stock  </h6>
+    {!hideButton &&(<h6 style={{color: 'red'}}>{quantity} in stock  </h6>) }
       </div>
 
       <img src={image} height={100} width={100} />
@@ -59,8 +59,10 @@ function CheckoutProduct({ id, qty, updateInstock, quantity, name, price, descri
           /> 
         </>
           )}
+          {hideButton ? <h4>you purchased {qty} of this item</h4>: <h1></h1>}
       {!hideButton && (
       <button className="product" onClick={() => removeFromCart(id)}>Delete</button>)}
+      
     </div>
   );
 }

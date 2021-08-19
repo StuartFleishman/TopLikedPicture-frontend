@@ -15,8 +15,9 @@ function Product({ id, name, price, description, addToBasket, image, cart, quant
           <p className="product__price">
             <small>$</small>
             <strong>{price}</strong>
+            <h1>{name}</h1>
         </p> }
-        <h1>{name}</h1>
+       
       
          
       </div>
