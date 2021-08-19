@@ -22,6 +22,10 @@ function Payment({user, cart, emptyBasket}) {
   const [processing, setProcessing] = useState("")
   const [clientSecret, setClientSecret] = useState(true)
 
+  const [address, setAddress] = useState({
+    street: "", state: "", zipcode: 1
+  })
+
   const stripe = useStripe()
   const elements = useElements()
 
@@ -87,7 +91,7 @@ function Payment({user, cart, emptyBasket}) {
     e.preventDefault()
     setProcessing(true)
 
-   
+    
 
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
@@ -100,6 +104,7 @@ function Payment({user, cart, emptyBasket}) {
       db.collection('users').doc(user.user?.uid).collection('orders').doc(paymentIntent.id).set({
         cart: cart,
         amount: paymentIntent.amount,
+        address: address,
         created: paymentIntent.created
       })
 
@@ -116,7 +121,7 @@ function Payment({user, cart, emptyBasket}) {
     })
   }
 
-  console.log(user)
+  console.log(address)
 
   const handleChange = e => {
       setDisabled(e.empty)
@@ -131,17 +136,17 @@ function Payment({user, cart, emptyBasket}) {
         </h1>
         <div className="payment__section">
           <div className="payment__title">
-            <h3>Delievery Address</h3>
+            <h3>Guest</h3>
           </div>
             <div className="payment__address">
               <p>{user.user?.email}</p>
-              <p>Address</p>
+            
             </div>
         </div>
 
         <div className="payment__section">
           <div className="payment__title">
-              <h3>Reivew Items & Delivery</h3>
+              <h3>Reivew Items </h3>
           </div>
           <div className="payment__items">
             <ol>
@@ -159,7 +164,15 @@ function Payment({user, cart, emptyBasket}) {
 
           <form onSubmit={handleSubmit}>
             <CardElement onChange={handleChange} />
-
+           <br></br>
+                <label>Street Address</label>
+                <input value={address.street} onChange={(e) => setAddress({...address, street: e.target.value})} />
+                <label>State</label>
+                <input value={address.state} onChange={(e) => setAddress({...address, state: e.target.value})}/>
+                <label>Zip Code</label>
+                <input value={address.zipcode} onChange={(e) => setAddress({...address, zipcode: e.target.value})}/>
+               
+        <br></br>
             <div className='payment__priceContainer'>
                 <h3>Order Total: ${totalPrice.toFixed(2)}</h3>
                 <button className="payment__button" disabled={processing || disabled || succeeded}>

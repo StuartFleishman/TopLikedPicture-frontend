@@ -11,6 +11,8 @@ function Order({ order, price }) {
     const amount = order.data.amount
     return amount / 100
   }
+
+  
   return (
     <div className="order">
       <h2>Order </h2>
@@ -18,7 +20,10 @@ function Order({ order, price }) {
        {order.data.cart?.map(product => (
          <CheckoutProduct className="order__product" amount={order.data.amount} key={product.id} id={product.id} image={product.image} qty={product.qty}  quantity={product.quantity}  name={product.name} price={product.price} description={product.description} hideButton />
        ))}
-       Order Total: <strong>${changeAmount()}</strong>
+       <h4>Order Total:</h4> <strong>${changeAmount()}</strong>
+       <h3>Delievered To: </h3>
+         <h3>{order.data.address?.street} </h3>
+       <h3>{order.data.address?.state} - {order.data.address?.zipcode} </h3>
     </div>
   )
 }
