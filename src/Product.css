@@ -9,7 +9,7 @@
   width: 70%;
   max-height: 400px;
   min-width: 100px;
-  background-color: white;
+  background-color: #f3f3f3;
   z-index: 1;
 }
 
@@ -37,6 +37,7 @@
 }
 
 .product__info {
+  
   height: 100px;
   margin-bottom: 15px;
 }
