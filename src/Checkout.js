@@ -5,9 +5,10 @@ import Product from './Product'
 import CheckoutProduct from './CheckoutProduct'
 import { connect } from "react-redux"
 import {deleteFromBasket} from './actions/basketAction'
+import {firebaseApp} from './firebase'
 
 
-function Checkout({cart, deleteFromBasket}) {
+function Checkout({cart, deleteFromBasket, products}) {
 
   const [totalPrice, setTotalPrice] = useState(0)
   const [totalItems, setTotalItems] = useState(0)
@@ -27,8 +28,10 @@ function Checkout({cart, deleteFromBasket}) {
 
   const renderProducts = () => {
    
-    return cart.map(product => <CheckoutProduct key={product.id} id={product.id} image={product.image} updateSubTotal={updateSubTotal} qty={product.qty}  quantity={product.quantity}  name={product.name} price={product.price} description={product.description} deleteFromBasket={deleteFromBasket} />)
+    return cart.map(product => <CheckoutProduct key={product.id} qty={product.qty} quantity={product.quantity} id={product.id} image={product.image} updateSubTotal={updateSubTotal} qty={product.qty}  name={product.name} price={product.price} description={product.description} deleteFromBasket={deleteFromBasket} updateInstock={updateInstock} />)
   }
+
+
 
   const renderPrice = () => {
     if(cart.length >= 1) {
@@ -42,13 +45,17 @@ function Checkout({cart, deleteFromBasket}) {
     return renderPrice(count)
   }
 
+  const updateInstock= (id, value) => {
+    console.log(id, value)
+  }
+
 
   return (
     <div className="checkout">
       <div className="checkout__left">
         <div>
           <h2 className="checkout__title">
-             Shopping Cart
+             Your Cart
           </h2>
           <div>
           <ol>
@@ -70,9 +77,10 @@ function Checkout({cart, deleteFromBasket}) {
 }
 
 const mapStateToProps = state => {
- 
+
   return {
-    cart: state.products.cart
+    cart: state.products.cart, 
+    products: state.products.products
   }
 }
 

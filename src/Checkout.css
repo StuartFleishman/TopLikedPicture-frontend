@@ -1,24 +1,21 @@
 .checkout {
   display: flex;
-  padding: 20px;
+  padding: 10px;
   height: max-content;
 }
 
-.checkout__ad {
-  width: 100%;
-  margin-bottom: 10px;
-}
+
 
 .checkout__title {
   margin-right: 50px;
   margin-top: -5px;
-  margin-left: 100px;
+  margin-left: 75px;
   padding: 10px;
   border-bottom: 1px solid black;
 }
 
 .checkout__right {
-  margin-left: 200px;
+  margin-left: 80px;
   margin-top: 10px;
 }
 

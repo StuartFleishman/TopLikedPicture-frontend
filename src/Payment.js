@@ -8,6 +8,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import axios from './axios'
 import { emptyBasket } from './actions/productsAction'
 import { db } from './firebase'
+import {firebaseApp} from './firebase'
 
 function Payment({user, cart, emptyBasket}) {
 
@@ -50,12 +51,22 @@ function Payment({user, cart, emptyBasket}) {
         }
       })
       setClientSecret(response.data.clientSecret)
+      if(setSucceeded) {
+        const productRef = firebaseApp.database().ref()
+          cart.map(product => { 
+          const quantity =  parseInt(product.quantity)
+          const qty = product.qty
+          const updatedQuantity = quantity - qty
+          const qtyProduct = {...product, quantity: updatedQuantity}
+          productRef.child(`product/${product.id}`).set(qtyProduct)
+        })
+      }
     }
 
     getClientSecret()
-  }, [totalPrice, totalItems, setTotalPrice, setTotalItems, cart]);
+  }, [totalPrice, totalItems, setTotalPrice, setTotalItems, cart, setSucceeded]);
 
-  console.log("the clent scet",clientSecret)
+  
 
   const renderProducts = () => {
     return cart.map(product => <CheckoutProduct key={product.id} id={product.id} image={product.image} qty={product.qty}  quantity={product.quantity}  name={product.name} price={product.price} description={product.description} />)
@@ -76,6 +87,8 @@ function Payment({user, cart, emptyBasket}) {
     e.preventDefault()
     setProcessing(true)
 
+   
+
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         type: 'card',
@@ -95,6 +108,9 @@ function Payment({user, cart, emptyBasket}) {
       setProcessing(false)
 
       emptyBasket()
+
+
+      
 
       history.replace('/orders')
     })

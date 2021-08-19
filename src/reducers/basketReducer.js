@@ -1,5 +1,5 @@
 export default function basketReducer(state = {basket: [], inBasket: false}, action) {
-  console.log(action.type)
+ 
   switch(action.type) {
     case 'ADD_BASKET': {
       return {...state, basket: [...state.basket, action.payload], inBasket: true}

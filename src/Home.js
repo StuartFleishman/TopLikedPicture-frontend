@@ -5,6 +5,7 @@ import Product from "./Product";
 import {fetchProducts, setProducts} from "./actions/productsAction"
 import {addToBasket, addToCart} from './actions/basketAction'
 import {firebaseApp} from './firebase'
+import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt'
 
 
 

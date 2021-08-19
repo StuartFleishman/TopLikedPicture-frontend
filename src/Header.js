@@ -161,7 +161,7 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
 }
 
 const mapStateToProps = state => {
-  
+
   return {
     cart: state.products.cart,
     products: state.products.products,

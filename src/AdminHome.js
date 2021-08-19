@@ -18,17 +18,6 @@ function AdminHome(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // const formData = new FormData()
-    // formData.append('name', productInput.name);
-    // formData.append('description', productInput.description);
-    // formData.append('image_url', image);
-    // formData.append('price', productInput.price);
-    // formData.append('quantity', productInput.quantity);
-
-    // props.createProduct(formData, history)
-
-    
-   
 
     const uploadPicture = storage.ref(`images/${productInput.name}`).put(image)
     uploadPicture.on(
@@ -48,10 +37,9 @@ function AdminHome(props) {
             productRef.push(product)
             history.push('/')
           })
-      }
-    )
-    
-  }
+        }
+      )
+    }
 
 
   
