@@ -5,6 +5,7 @@ import {addToCart} from './actions/basketAction'
 import "./Product.css";
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt'
 import AddShoppingCartTwoToneIcon from '@material-ui/icons/AddShoppingCartTwoTone';
+import {Link} from "react-router-dom";
 
 function Product({ id, name, price, description, addToBasket, image, cart, quantity, addToCart }) {  
  
@@ -16,7 +17,9 @@ function Product({ id, name, price, description, addToBasket, image, cart, quant
           <p className="product__price">
             <small>$</small>
             <strong>{price}</strong>
-            <h1>{name}</h1>
+            <Link add style={{ textDecoration: 'none' }} to={`/products/${id}`}>
+            <h1 >{name}</h1>
+            </Link>
         </p> }
        
       

@@ -8,7 +8,7 @@ import {
   Route,
 } from "react-router-dom";
 import Checkout from './Checkout'
-import ProductForm from './ProductForm'
+import ProductForm from './ProductShow'
 import Admin from './Admin'
 import AdminHome from './AdminHome'
 import Login from './Login'
@@ -22,8 +22,9 @@ import { Elements } from "@stripe/react-stripe-js"
 import Orders from './Orders'
 import OrderHeader from './OrderHeader'
 import CheckOutHeader from './CheckOutHeader'
-
+import ProductShow from './ProductShow'
 import SearchHeader from './SearchHeader'
+import ProductHeader from './ProductHeader'
 
 const promise = loadStripe('pk_test_51JNIcRCZzbqBIQx8Vm4CijT94O04TALJ83gexf8HMEy3xP6VlqGc0Gv7ZjcV2cJTY3ac6raxsxcSqS5eTINtIzJN007wXhcPhD')
 
@@ -51,7 +52,6 @@ const App = ({user, loginUser, logout}) => {
           </Route>
           <Route path='/search'> 
             <SearchHeader />
-            
           </Route>
           <Route path='/login'> 
             <Login />
@@ -82,6 +82,10 @@ const App = ({user, loginUser, logout}) => {
             <Elements stripe={promise}>
               <Payment/>
             </Elements>
+          </Route>
+          <Route path='/products/:id'>
+            <ProductHeader />
+            <ProductShow />
           </Route>
           
           

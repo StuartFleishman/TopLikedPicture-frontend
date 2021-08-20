@@ -55,7 +55,7 @@ function Home(props) {
   
   return (
     <div className="home">
-      {/* <div className="home__container">
+      <div className="home__container">
       
         <img
           className="home__image"
@@ -71,7 +71,7 @@ function Home(props) {
           {renderOtherProducts() }
         </div>
 
-      </div> */}
+      </div>
     </div>
   );
 }

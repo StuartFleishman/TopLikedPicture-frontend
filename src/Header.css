@@ -29,11 +29,12 @@
   width: 100%;
 }
 
-.header__searchIcon {
+/* .header__searchIcon {
   padding: 5px;
   height: 22px !important;
   background-color: lightblue
-}
+  
+} */
 
 .header__optionLineOne {
   font-size: 15px;

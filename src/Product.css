@@ -16,6 +16,9 @@
 .product__rating {
   display: flex;
 }
+.name {
+  text-decoration: none;
+}
 
 .product > img {
   max-height: 200px;
