@@ -23,6 +23,8 @@ import Orders from './Orders'
 import OrderHeader from './OrderHeader'
 import CheckOutHeader from './CheckOutHeader'
 
+import SearchHeader from './SearchHeader'
+
 const promise = loadStripe('pk_test_51JNIcRCZzbqBIQx8Vm4CijT94O04TALJ83gexf8HMEy3xP6VlqGc0Gv7ZjcV2cJTY3ac6raxsxcSqS5eTINtIzJN007wXhcPhD')
 
 const App = ({user, loginUser, logout}) => {
@@ -46,6 +48,10 @@ const App = ({user, loginUser, logout}) => {
           <Switch>
            <Route path='/admin'> 
             <Admin />
+          </Route>
+          <Route path='/search'> 
+            <SearchHeader />
+            
           </Route>
           <Route path='/login'> 
             <Login />

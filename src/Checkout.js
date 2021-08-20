@@ -6,6 +6,7 @@ import CheckoutProduct from './CheckoutProduct'
 import { connect } from "react-redux"
 import {deleteFromBasket} from './actions/basketAction'
 import {firebaseApp} from './firebase'
+import FlipMove from 'react-flip-move'
 
 
 function Checkout({cart, deleteFromBasket, products}) {
@@ -28,7 +29,7 @@ function Checkout({cart, deleteFromBasket, products}) {
 
   const renderProducts = () => {
    
-    return cart.map(product => <CheckoutProduct key={product.id} qty={product.qty} quantity={product.quantity} id={product.id} image={product.image} updateSubTotal={updateSubTotal} qty={product.qty}  name={product.name} price={product.price} description={product.description} deleteFromBasket={deleteFromBasket} updateInstock={updateInstock} />)
+    return cart.map(product => <li style={{color: "blue"}}><CheckoutProduct key={product.id} qty={product.qty} quantity={product.quantity} id={product.id} image={product.image} updateSubTotal={updateSubTotal} qty={product.qty}  name={product.name} price={product.price} description={product.description} deleteFromBasket={deleteFromBasket} updateInstock={updateInstock} /></li> )
   }
 
 
@@ -58,9 +59,12 @@ function Checkout({cart, deleteFromBasket, products}) {
              Your Cart
           </h2>
           <div>
-          <ol>
+          <FlipMove typeName="ol" >
+            
             {renderProducts()}
-          </ol>
+         
+          </FlipMove>
+          
           </div>
         </div>
       </div>

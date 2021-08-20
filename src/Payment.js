@@ -23,7 +23,7 @@ function Payment({user, cart, emptyBasket}) {
   const [clientSecret, setClientSecret] = useState(true)
 
   const [address, setAddress] = useState({
-    street: "", state: "", zipcode: 1
+    street: "", state: "", zipcode: ""
   })
 
   const stripe = useStripe()

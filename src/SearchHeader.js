@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Header.css";
+import "./SearchHeader.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
@@ -14,12 +14,10 @@ import './Home.css'
 import Product from './Product'
 import {addToBasket, addToCart} from './actions/basketAction'
 import FlipMove from 'react-flip-move'
-import ShoppingBasketTwoToneIcon from '@material-ui/icons/ShoppingBasketTwoTone';
 
 
 
-
-function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) { 
+function SearchHeader({ cart, user, loggedIn, products, setProducts, addToBasket}) { 
   
   const [cartCount, setCartCount] = useState(0)
 
@@ -102,10 +100,10 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
         />
       </Link>
     
-      {/* <div className="header__search">
+      <div className="header__search">
         <input value={searchBar} onChange={(e) => setSearchBar(e.target.value)} className="header__searchInput" type="text" />
         <SearchIcon className="header__searchIcon" />
-      </div> */}
+      </div>
      
 
       <div className="header__nav">
@@ -134,14 +132,13 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
 
           <Link to="/orders">
             <div className="header__option">
-            <span className="header__optionLineOne">Review</span>
               <span className="header__optionLineTwo">Orders</span>
             </div>
           </Link>
         
         <Link to="/checkout">
           <div className="header__optionBasket">
-            <ShoppingBasketTwoToneIcon />
+            <ShoppingBasketIcon />
             <span className="header__optionLineTwo header__basketCount">
               {cartCount}
             </span>
@@ -158,23 +155,23 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
           <div className="home__container">
             
             <img
-              className="home__image"
+              className="search__image"
               src=""
               alt=""
             />
 
-            <div className="home__row">
+            <div className="search__row">
               
               {renderProducts()}
              
             </div>
 
             <div className="home__row">
-              {renderOtherProducts() }
+             
             </div>
 
             <div className="home__row">
-              {renderLastProducts() }
+       
             </div>
 
           </div>
@@ -194,4 +191,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {logout, setProducts, addToBasket})(Header)
+export default connect(mapStateToProps, {logout, setProducts, addToBasket})(SearchHeader)

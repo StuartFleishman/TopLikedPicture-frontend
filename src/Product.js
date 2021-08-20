@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import {addToCart} from './actions/basketAction'
 import "./Product.css";
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt'
+import AddShoppingCartTwoToneIcon from '@material-ui/icons/AddShoppingCartTwoTone';
 
 function Product({ id, name, price, description, addToBasket, image, cart, quantity, addToCart }) {  
  
