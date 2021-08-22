@@ -12,29 +12,40 @@ function SingleProduct({ id, name, price, description, addToBasket, image, cart,
   return (
     <div className="container">
       <div className="singleproduct__info">
+        <div className="single__name">
+  <h1 style={{color: "white", alignContent: "center"}}>{name} </h1> <span>  <small style={{color: "white"}}>$</small>
+            
+            <strong style={{color: "white"}}>{price}</strong></span>
+           
+        </div>
+      
      
-        
+        <br></br>
           <p className="singleroduct__price">
-            <small>$</small>
-            <strong>{price}</strong>
+            
+          <strong style={{color: "red"}}>In stock ({quantity}) </strong>
+          
+          
           
            
            
             </p> 
    
-      <div className="single__name">
-        <h1 style={{color: "white"}}>{name}</h1>
-      </div>
-      
+   
          
       </div>
+      <br></br>
       <div className="image__product">
           <img src={image} height={300} width={250} />
       </div>
 
+      <br></br>
+
       <div>
-        <h2>Description: {description}</h2>
+       
+        <h3 style={{color: "white"}}>{description}</h3>
       </div>
+      <br></br>
   {cart.find(b=> b.id === id) ? <button  className="product" > in cart</button> : <button className="product" onClick={() => addToCart(id) }> CART</button> }
 
  

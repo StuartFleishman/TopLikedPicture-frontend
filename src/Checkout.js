@@ -29,7 +29,7 @@ function Checkout({cart, deleteFromBasket, products}) {
 
   const renderProducts = () => {
    
-    return cart.map(product => <li style={{color: "blue"}}><CheckoutProduct key={product.id} qty={product.qty} quantity={product.quantity} id={product.id} image={product.image} updateSubTotal={updateSubTotal} qty={product.qty}  name={product.name} price={product.price} description={product.description} deleteFromBasket={deleteFromBasket} updateInstock={updateInstock} /></li> )
+    return cart.map(product => <li style={{color: "black"}}><CheckoutProduct key={product.id} qty={product.qty} quantity={product.quantity} id={product.id} image={product.image} updateSubTotal={updateSubTotal} qty={product.qty}  name={product.name} price={product.price} description={product.description} deleteFromBasket={deleteFromBasket} updateInstock={updateInstock} /></li> )
   }
 
 
@@ -53,13 +53,15 @@ function Checkout({cart, deleteFromBasket, products}) {
 
   return (
     <div className="checkout">
+
+       
       <div className="checkout__left">
         <div>
           <h2 className="checkout__title">
              Your Cart
           </h2>
           <div>
-          <FlipMove typeName="ol" >
+          <FlipMove typeName="ul" >
             
             {renderProducts()}
          

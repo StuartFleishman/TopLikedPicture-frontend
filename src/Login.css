@@ -1,6 +1,6 @@
 .login {
   height: 100vh;
-  background-color: lightblue;
+  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +34,7 @@
 }
 
 .signin {
-  background-color: lightyellow;
+  background-color: black;
 }
 
 .signin__title {

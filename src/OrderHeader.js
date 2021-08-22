@@ -13,6 +13,7 @@ import Home from './Home'
 import './Home.css'
 import Product from './Product'
 import {addToBasket, addToCart} from './actions/basketAction'
+import ShoppingBasketTwoToneIcon from '@material-ui/icons/ShoppingBasketTwoTone';
 
 function OrderHeader({ cart, user, loggedIn, products, setProducts, addToBasket}) { 
   
@@ -114,7 +115,7 @@ function OrderHeader({ cart, user, loggedIn, products, setProducts, addToBasket}
         
         <Link to="/checkout">
           <div className="header__optionBasket">
-            <ShoppingBasketIcon />
+            <ShoppingBasketTwoToneIcon />
             <span className="header__optionLineTwo header__basketCount">
               {cartCount}
             </span>

@@ -5,7 +5,6 @@ import Product from "./Product";
 import {fetchProducts, setProducts} from "./actions/productsAction"
 import {addToBasket, addToCart} from './actions/basketAction'
 import {firebaseApp} from './firebase'
-import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt'
 
 
 
@@ -55,7 +54,7 @@ function Home(props) {
   
   return (
     <div className="home">
-      <div className="home__container">
+      {/* <div className="home__container">
       
         <img
           className="home__image"
@@ -71,7 +70,7 @@ function Home(props) {
           {renderOtherProducts() }
         </div>
 
-      </div>
+      </div> */}
     </div>
   );
 }

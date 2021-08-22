@@ -38,21 +38,18 @@ function Signup({createUser, loginUser}) {
         src="http://pngimg.com/uploads/triangle/triangle_PNG44.png" />
       </Link>
       <div className="login__container">
-        <h1 className="signin__title">Create An Account</h1>
+        <h1 style={{color: "white"}} className="signin__title">Create An Account</h1>
         <br></br>
         <form onSubmit={(e) => handleSubmit(e)}>
-            <h5>UserName</h5>
-            <input value={userInput.name} onChange={(e) => setUserInput({...userInput, name: e.target.value})} type="text" />
-            <br></br>
-            <h5>Email</h5>
+          
+            <h5 style={{color: "white"}}>Email</h5>
             <input value={userInput.email} onChange={(e) => setUserInput({...userInput, email: e.target.value})} type="email" />
             <br></br>
-            <h5>Password</h5>
-            <input value={userInput.password} onChange={(e) => setUserInput({...userInput, password: e.target.value})}  type="password" />
+            <h5 style={{color: "white"}}>Password</h5>
+            <input  value={userInput.password} onChange={(e) => setUserInput({...userInput, password: e.target.value})}  type="password" />
             <br></br>
-            <h5>Password Confirmation</h5>
-            <input value={userInput.password_confirmation} onChange={(e) => setUserInput({...userInput, password_confirmation: e.target.value})}  type="password" />
-            <input className="signin" type="submit" value="SIGN-UP" />
+            
+            <input style={{color: "white"}} className="signin" type="submit" value="SIGN-UP" />
         </form>
         
       </div>

@@ -50,17 +50,17 @@ function AdminHome(props) {
       <button onClick={() => props.logoutAdmin(history)}>LogOut</button>
       <div className="container">
       <form onSubmit={(e) => handleSubmit(e)}>
-        <h1>Add Product</h1>
+        <h1 style={{color: "white", textAlign: "center"}}>Create Product</h1>
         <br></br>
-        <label>Product Name</label>
+        <label style={{color: "white"}}>Product Name</label>
         <input type="text" value={productInput.name} onChange={(e) => setProductInput({...productInput, name: e.target.value}) } />
-        <label>Description</label>
+        <label style={{color: "white"}}>Description</label>
         <input type="textarea" value={productInput.description} onChange={(e) => setProductInput({...productInput, description: e.target.value}) } />
-        <label>Price</label>
+        <label style={{color: "white"}}>Price</label>
         <input type="number" min="0" step=".01" value={productInput.price} onChange={(e) => setProductInput({...productInput, price: e.target.value}) } />
-        <label>Quantity</label>
+        <label style={{color: "white"}}>Quantity</label>
         <input type="number" value={productInput.quantity} onChange={(e) => setProductInput({...productInput, quantity: e.target.value}) } />
-        <label>Image</label>
+        <label style={{color: "white"}}>Image</label>
         <input type="file"  onChange={(e) => setImage(e.target.files[0]) } />
         <br></br>
         <input type="submit" value="submit" />

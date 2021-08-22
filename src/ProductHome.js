@@ -19,7 +19,7 @@ import ShoppingBasketTwoToneIcon from '@material-ui/icons/ShoppingBasketTwoTone'
 
 
 
-function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) { 
+function ProductHome({ cart, user, loggedIn, products, setProducts, addToBasket}) { 
   
   const [cartCount, setCartCount] = useState(0)
 
@@ -95,7 +95,7 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
   return (
     <>
     <div className="header">
-      <Link to="/products">
+      <Link to="/">
         <img
           className="header__logo"
           src="https://pngimg.com/uploads/triangle/triangle_PNG105.png"
@@ -125,10 +125,10 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
           </div>
         </Link>
 
-        <Link to="/products">
+        <Link to="/search">
             <div className="header__option">
-            <span className="header__optionLineOne">New</span>
-              <span className="header__optionLineTwo">Records</span>
+            <span className="header__optionLineOne">Search</span>
+              <span className="header__optionLineTwo">Products</span>
             </div>
           </Link>
 
@@ -156,30 +156,30 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
 
           <div className="home">
           <div className="home__container">
-            <Link to="/products">
+            <Link to="/search">
             <img
               className="home__image"
-              src="https://images.unsplash.com/photo-1625472603517-1b0dc72846ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
+              src=""
               alt=""
             />
             </Link>
 
           <div className="last__home__row">
-            
+              {renderLastProducts() }
             </div>
 
             <div className="home__row">
               
-           
+              {renderProducts()}
              
             </div>
 
             <div className="home__row">
-            
+              {renderOtherProducts() }
             </div>
 
             <div className="last__home__row">
-       
+              {renderLastProducts() }
             </div>
 
           </div>
@@ -199,7 +199,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {logout, setProducts, addToBasket})(Header)
-
-
-
+export default connect(mapStateToProps, {logout, setProducts, addToBasket})(ProductHome)
