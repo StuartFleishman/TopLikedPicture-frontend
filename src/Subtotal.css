@@ -6,9 +6,10 @@
   align-items: center;
   height: 120px;
   padding: 20px;
-  background-color: #f3f3f3;
+  background-color: black;
   border: 1px solid #dddddd;
   border-radius: 3px;
+  color: white
 }
 
 

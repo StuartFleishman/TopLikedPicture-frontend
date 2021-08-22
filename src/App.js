@@ -26,6 +26,7 @@ import ProductShow from './ProductShow'
 import SearchHeader from './SearchHeader'
 import ProductHeader from './ProductHeader'
 import ProductHome from './ProductHome'
+import Footer from './Footer'
 
 const promise = loadStripe('pk_test_51JNIcRCZzbqBIQx8Vm4CijT94O04TALJ83gexf8HMEy3xP6VlqGc0Gv7ZjcV2cJTY3ac6raxsxcSqS5eTINtIzJN007wXhcPhD')
 
@@ -60,6 +61,7 @@ const App = ({user, loginUser, logout}) => {
             <Route exact path='/'>
           <Header/> 
           <Home />
+          <Footer />
           </Route>
           <Route path='/home'>
             <AdminHome />
