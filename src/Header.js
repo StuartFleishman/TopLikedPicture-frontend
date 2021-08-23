@@ -156,13 +156,14 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
 
           <div className="home">
           <div className="home__container">
-            <Link to="/products">
+        <Link to="/products">
             <img
               className="home__image"
               src="https://images.unsplash.com/photo-1625472603517-1b0dc72846ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
               alt=""
             />
             </Link>
+           
 
           <div className="last__home__row">
             

@@ -9,7 +9,7 @@ import {firebaseApp} from './firebase'
 import FlipMove from 'react-flip-move'
 
 
-function Checkout({cart, deleteFromBasket, products}) {
+function Checkout({cart, deleteFromBasket, products, loggedIn}) {
 
   const [totalPrice, setTotalPrice] = useState(0)
   const [totalItems, setTotalItems] = useState(0)
@@ -71,9 +71,11 @@ function Checkout({cart, deleteFromBasket, products}) {
         </div>
       </div>
 
+    {loggedIn ?
       <div className="checkout__right">
           {<Subtotal price={totalPrice} items={totalItems} />}
       </div>
+            : <h1 style={{color: "white"}}>Please Sign-In To Checkout</h1>}
 
 
     </div>
@@ -86,7 +88,8 @@ const mapStateToProps = state => {
 
   return {
     cart: state.products.cart, 
-    products: state.products.products
+    products: state.products.products,
+    loggedIn: state.user.loggedIn
   }
 }
 

@@ -128,7 +128,7 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
         <Link to="/search">
             <div className="header__option">
             <span className="header__optionLineOne">Search</span>
-              <span className="header__optionLineTwo">Products</span>
+              <span className="header__optionLineTwo">Records</span>
             </div>
           </Link>
 

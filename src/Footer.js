@@ -1,39 +1,50 @@
 import React from 'react'
 import './Footer.css'
+import {Link} from "react-router-dom";
 
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer__container">
         <div className="footer__row">
+       
+       <Link to="/products">
           <div className="footer__col" >
-            <h4>Triangle Records</h4>
+         
+            <h4 style={{color: "green"}}>Shop</h4>
+          
             <ul>
               <li></li>
             </ul>
           </div>
+        </Link>
+
+        <Link to="/orders" >
 
           <div className="footer__col" >
-            <h4>Shop</h4>
+           
+            <h4 style={{color: "white"}}>Orders</h4>
+            <ul>
+              <li></li>
+            </ul>
+            
+          </div>
+          </Link>
+
+          <Link to="/checkout">
+          <div className="footer__col" >
+            <h4 style={{color: "green"}}></h4>
+          </div>
+          </Link>
+
+      <Link to="/checkout">
+          <div className="footer__col" >
+            <h4 style={{color: "green"}}></h4>
             <ul>
               <li></li>
             </ul>
           </div>
-
-          <div className="footer__col" >
-            <h4>Contact Us</h4>
-            <ul>
-              <li></li>
-            </ul>
-          </div>
-
-
-          <div className="footer__col" >
-            <h4>Buy Everything!</h4>
-            <ul>
-              <li></li>
-            </ul>
-          </div>
+          </Link>
 
     
 

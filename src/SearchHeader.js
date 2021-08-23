@@ -15,6 +15,7 @@ import Product from './Product'
 import {addToBasket, addToCart} from './actions/basketAction'
 import FlipMove from 'react-flip-move'
 import ShoppingBasketTwoToneIcon from '@material-ui/icons/ShoppingBasketTwoTone';
+import SearchProduct from './SearchProduct'
 
 
 
@@ -61,7 +62,7 @@ function SearchHeader({ cart, user, loggedIn, products, setProducts, addToBasket
         return val
       }
     }).map(product => {
-    return <Product 
+    return <SearchProduct 
               key={product.id} 
               id={product.id} 
               cart={cart} 
@@ -124,10 +125,10 @@ function SearchHeader({ cart, user, loggedIn, products, setProducts, addToBasket
           </div>
         </Link>
 
-        <Link to="/search">
+        <Link to="/products">
             <div className="header__option">
-            <span className="header__optionLineOne">Search</span>
-              <span className="header__optionLineTwo">Products</span>
+            <span className="header__optionLineOne">New</span>
+              <span className="header__optionLineTwo">Records</span>
             </div>
           </Link>
 

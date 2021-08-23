@@ -9,6 +9,7 @@ import axios from './axios'
 import { emptyBasket } from './actions/productsAction'
 import { db } from './firebase'
 import {firebaseApp} from './firebase'
+import ShoppingBasketTwoToneIcon from '@material-ui/icons/ShoppingBasketTwoTone';
 
 function Payment({user, cart, emptyBasket}) {
 
@@ -23,7 +24,7 @@ function Payment({user, cart, emptyBasket}) {
   const [clientSecret, setClientSecret] = useState(true)
 
   const [address, setAddress] = useState({
-    street: "", state: "", zipcode: ""
+    name: "", street: "", state: "", zipcode: ""
   })
 
   const stripe = useStripe()
@@ -131,9 +132,7 @@ function Payment({user, cart, emptyBasket}) {
   return (
     <div className="payment">
       <div className="payment__container">
-        <h1>
-          Checkout (<Link to="checkout">{renderQty()} items</Link>)
-        </h1>
+  
         <div className="payment__section">
           <div className="payment__title">
             <h3>Guest</h3>
@@ -163,8 +162,10 @@ function Payment({user, cart, emptyBasket}) {
         <div className="payment__details">
 
           <form onSubmit={handleSubmit}>
-            <CardElement onChange={handleChange} />
+            <CardElement  onChange={handleChange} />
            <br></br>
+                <label>Name</label>
+                <input value={address.name} onChange={(e) => setAddress({...address, name: e.target.value})} />
                 <label>Street Address</label>
                 <input value={address.street} onChange={(e) => setAddress({...address, street: e.target.value})} />
                 <label>State</label>

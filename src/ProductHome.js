@@ -15,6 +15,7 @@ import Product from './Product'
 import {addToBasket, addToCart} from './actions/basketAction'
 import FlipMove from 'react-flip-move'
 import ShoppingBasketTwoToneIcon from '@material-ui/icons/ShoppingBasketTwoTone';
+import OtherProduct from './OtherProduct'
 
 
 
@@ -77,7 +78,7 @@ function ProductHome({ cart, user, loggedIn, products, setProducts, addToBasket}
   }
 
   const renderOtherProducts = () => {
-    const productArray =  products.map(product => <Product key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
+    const productArray =  products.map(product => <OtherProduct key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
     return productArray.slice(-2)
   }
 
@@ -128,7 +129,7 @@ function ProductHome({ cart, user, loggedIn, products, setProducts, addToBasket}
         <Link to="/search">
             <div className="header__option">
             <span className="header__optionLineOne">Search</span>
-              <span className="header__optionLineTwo">Products</span>
+              <span className="header__optionLineTwo">Records</span>
             </div>
           </Link>
 
@@ -165,7 +166,7 @@ function ProductHome({ cart, user, loggedIn, products, setProducts, addToBasket}
             </Link>
 
           <div className="last__home__row">
-              {renderLastProducts() }
+              {renderOtherProducts() }
             </div>
 
             <div className="home__row">

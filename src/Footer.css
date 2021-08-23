@@ -2,13 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+ 
 }
 
 
 .footer {
   color: white;
   padding: 70px 0;
- 
+ align-items: center;
   background-color: black;
 }
 
@@ -16,11 +17,12 @@
   max-width: 1170px;
   margin:auto;
   align-items: center;
+
 }
 
 .footer__row {
   display: flex;
-  flex-wrap: wrap;
+
 }
 
 ul {
@@ -32,24 +34,12 @@ ul {
   padding: 0 15px;
 }
 
-.footer__col h4 {
-  font-size: 18px;
-  color: white;
-  margin-bottom: 30px;
-  margin-left: 30px;
-  position: relative;
+.footer__colTwo {
+  width: 25%;
+  padding: 0 15px;
 }
 
-.footer__col h4::before{
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  box-sizing: border-box;
-  width: 50px;
-}
 
-.footer__col ul li:not(:last-child){
-  margin-bottom: 10px;
-}
+
+
 
