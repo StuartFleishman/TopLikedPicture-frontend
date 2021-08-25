@@ -27,6 +27,7 @@ import SearchHeader from './SearchHeader'
 import ProductHeader from './ProductHeader'
 import ProductHome from './ProductHome'
 import Footer from './Footer'
+import ProductContainer from './ProductContainer'
 
 const promise = loadStripe('pk_test_51JNIcRCZzbqBIQx8Vm4CijT94O04TALJ83gexf8HMEy3xP6VlqGc0Gv7ZjcV2cJTY3ac6raxsxcSqS5eTINtIzJN007wXhcPhD')
 
@@ -67,23 +68,21 @@ const App = ({user, loginUser, logout}) => {
             <AdminHome />
           </Route>
           <Route path='/checkout'>
-            <OrderHeader /> 
+            <CheckOutHeader /> 
             <Checkout />
           </Route>
           <Route path='/orders'>
             <OrderHeader/> 
             <Orders />
           </Route>
-          <Route path='/products/:id'>
+          {/* <Route path='/products/:id'>
             <ProductHeader />
             <ProductShow />
-          </Route>
+          </Route> */}
           <Route path='/product/new'>
             <ProductForm />
           </Route>
-          <Route path='/products'>
-            <ProductHome />
-          </Route>
+          <Route path="/products" component={(routeInfo) => <ProductContainer routeData={routeInfo} />} />
           <Route path='/signup'>
             <Signup />
           </Route>

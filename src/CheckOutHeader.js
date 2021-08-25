@@ -114,19 +114,18 @@ function CheckOutHeader({ cart, user, loggedIn, products, setProducts, addToBask
           </div>
         </Link>
 
-          <Link to="/orders">
+          <Link to="/products">
             <div className="header__option">
-              <span className="header__optionLineTwo">Orders</span>
+            <span className="header__optionLineOne">Shop</span>
+              <span className="header__optionLineTwo">Records</span>
             </div>
           </Link>
         
-        <Link to="/checkout">
-          <div className="header__optionBasket">
-            <ShoppingBasketTwoToneIcon />
-            <span className="header__optionLineTwo header__basketCount">
-              {cartCount}
-            </span>
-          </div>
+        <Link to="/orders">
+        <div className="header__option">
+            <span className="header__optionLineOne">Review</span>
+              <span className="header__optionLineTwo">Orders</span>
+            </div>
           </Link>
 
        

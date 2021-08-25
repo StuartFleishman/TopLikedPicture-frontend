@@ -15,7 +15,15 @@ function Order({ order, price }) {
   
   return (
     <div className="order">
-      <h2 className="order__id" style={{color: "green"}}>Order Total: <span>${changeAmount().toFixed(2)}</span></h2>
+         <div className="address">
+       <h3>Delievery Address: </h3>
+       <h3>{order.data.address?.name} </h3>
+         <h3>{order.data.address?.street} </h3>
+       <h3>{order.data.address?.state} - {order.data.address?.zipcode} </h3>
+       <br></br>
+       <h4 style={{color: "white"}}>Order Total: <span>${changeAmount().toFixed(2)}</span></h4>
+       </div>
+
       <br></br>
        <p>{moment.unix(order.data.created).format("MMMM Do YYYY, h:mma")}</p>
        {order.data.cart?.map(product => (
@@ -23,12 +31,7 @@ function Order({ order, price }) {
        ))}
        
        <br></br>
-       <div className="address">
-       <h3>Delievered To: </h3>
-       <h3>{order.data.address?.name} </h3>
-         <h3>{order.data.address?.street} </h3>
-       <h3>{order.data.address?.state} - {order.data.address?.zipcode} </h3>
-       </div>
+    
     
     </div>
   )

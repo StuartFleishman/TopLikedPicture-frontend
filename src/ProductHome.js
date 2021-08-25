@@ -79,12 +79,17 @@ function ProductHome({ cart, user, loggedIn, products, setProducts, addToBasket}
 
   const renderOtherProducts = () => {
     const productArray =  products.map(product => <OtherProduct key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
-    return productArray.slice(-2)
+    return productArray.slice(9, 11)
   }
 
   const renderLastProducts = () => {
     const productArray =  products.map(product => <Product key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
     return productArray.slice(-1)
+  }
+
+  const renderMiddleProducts = () => {
+    const productArray =  products.map(product => <Product key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
+    return productArray.slice(6, 8)
   }
 
  
@@ -176,7 +181,7 @@ function ProductHome({ cart, user, loggedIn, products, setProducts, addToBasket}
             </div>
 
             <div className="home__row">
-              {renderOtherProducts() }
+              {renderMiddleProducts() }
             </div>
 
             <div className="last__home__row">

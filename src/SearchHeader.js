@@ -72,7 +72,7 @@ function SearchHeader({ cart, user, loggedIn, products, setProducts, addToBasket
               image={product.image} 
               description={product.description} 
               addToBasket={findProduct} />})
-    return productArray.slice(0, 5)
+    return productArray
   
   }
 
@@ -127,7 +127,7 @@ function SearchHeader({ cart, user, loggedIn, products, setProducts, addToBasket
 
         <Link to="/products">
             <div className="header__option">
-            <span className="header__optionLineOne">New</span>
+            <span className="header__optionLineOne">View</span>
               <span className="header__optionLineTwo">Records</span>
             </div>
           </Link>
