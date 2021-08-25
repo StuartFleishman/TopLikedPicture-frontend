@@ -19,11 +19,11 @@ function Footer() {
           </div>
         </Link>
 
-        <Link to="/orders" >
+        <Link to="/checkout" >
 
           <div className="footer__col" >
            
-            <h4 style={{color: "white"}}>Orders</h4>
+            <h4 style={{color: "white"}}>Cart</h4>
             <ul>
               <li></li>
             </ul>

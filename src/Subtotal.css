@@ -4,11 +4,12 @@
   justify-content: space-between;
   width: 300px;
   align-items: center;
-  height: 120px;
+  height: 190px;
   padding: 20px;
+
   background-color: black;
   border: 1px solid #dddddd;
-  border-radius: 3px;
+  border-radius: 20px;
   color: white
 }
 

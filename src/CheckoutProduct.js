@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { connect } from "react-redux"
-import "./Product.css";
+import "./CheckOutProduct.css";
 import {addToBasket, removeFromCart, adjustItemQty} from './actions/basketAction'
 
 function CheckoutProduct({ id, qty, quantity, name, price, description, hideButton, removeFromCart, adjustItemQty, image}) {
@@ -34,10 +34,10 @@ function CheckoutProduct({ id, qty, quantity, name, price, description, hideButt
   }
  
   return (
-    <div className="product">
-      <div className="product__info">
+    <div className="checkoutproduct">
+      <div className="checkoutproduct__info">
         <p>{name}</p>
-        <p className="product__price">
+        <p className="checkoutproduct__price">
           <small>$</small>
           <strong>{price}</strong>
         </p>
@@ -47,7 +47,7 @@ function CheckoutProduct({ id, qty, quantity, name, price, description, hideButt
       <img src={image} height={100} width={100} />
     {!hideButton && (
       <>
-      <label htmlFor="qty">Qty {input} </label>
+      <label htmlFor="qty">Qauntity {input} </label>
           <input
             min="1"
             type="number"
@@ -60,7 +60,7 @@ function CheckoutProduct({ id, qty, quantity, name, price, description, hideButt
           )}
           {hideButton ? <h4>you purchased {qty} of this item</h4>: <h1></h1>}
       {!hideButton && (
-      <button className="product" onClick={() => removeFromCart(id)}>Delete</button>)}
+      <button className="checkoutproduct" onClick={() => removeFromCart(id)}>Delete</button>)}
       
     </div>
   );

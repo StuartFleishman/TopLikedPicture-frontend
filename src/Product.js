@@ -17,8 +17,8 @@ function Product({ id, name, price, description, addToBasket, image, cart, quant
           <p className="product__price">
             <small>$</small>
             <strong>{price}</strong>
-            <Link add style={{ textDecoration: 'none' }} to={`/products/${id}`}>
-            <h1 >{name}</h1>
+            <Link add style={{ textDecoration: 'none', color: "white" }} to={`/products/${id}`}>
+            <h1 style={{color: "white"}}>{name}</h1>
             </Link>
         </p> }
        

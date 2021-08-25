@@ -19,6 +19,7 @@ import ShoppingBasketTwoToneIcon from '@material-ui/icons/ShoppingBasketTwoTone'
 
 
 
+
 function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) { 
   
   const [cartCount, setCartCount] = useState(0)
@@ -78,12 +79,17 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
 
   const renderOtherProducts = () => {
     const productArray =  products.map(product => <Product key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
-    return productArray.slice(-2)
+    return productArray.slice(9, 11)
   }
 
   const renderLastProducts = () => {
     const productArray =  products.map(product => <Product key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
     return productArray.slice(-1)
+  }
+
+  const renderMiddleProducts = () => {
+    const productArray =  products.map(product => <Product key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
+    return productArray.slice(6, 8)
   }
 
  
@@ -166,21 +172,20 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
            
 
           <div className="last__home__row">
-            
+            {renderOtherProducts()}
             </div>
 
             <div className="home__row">
-              
-           
+            {renderProducts() }
              
             </div>
 
             <div className="home__row">
-            
+            {renderMiddleProducts() } 
             </div>
 
             <div className="last__home__row">
-       
+            {renderLastProducts() }
             </div>
 
           </div>

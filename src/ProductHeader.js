@@ -83,7 +83,7 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
 
   const renderLastProducts = () => {
     const productArray =  products.map(product => <Product key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
-    return productArray.slice(-3)
+    return productArray.slice(-1)
   }
 
  

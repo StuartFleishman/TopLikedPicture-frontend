@@ -84,13 +84,19 @@ function ProductHome({ cart, user, loggedIn, products, setProducts, addToBasket}
 
   const renderLastProducts = () => {
     const productArray =  products.map(product => <Product key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
-    return productArray.slice(-1)
+    return productArray.slice(10,13)
   }
 
-  const renderMiddleProducts = () => {
+  // const renderMiddleProducts = () => {
+  //   const productArray =  products.map(product => <Product key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
+  //   return productArray.slice(6, 8)
+  // }
+
+  const renderSecondProducts = () => {
     const productArray =  products.map(product => <Product key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
-    return productArray.slice(6, 8)
+    return productArray.slice(5, 9)
   }
+
 
  
 
@@ -181,7 +187,13 @@ function ProductHome({ cart, user, loggedIn, products, setProducts, addToBasket}
             </div>
 
             <div className="home__row">
-              {renderMiddleProducts() }
+              
+              {renderSecondProducts()}
+             
+            </div>
+
+            <div className="home__row">
+              {/* {renderMiddleProducts() } */}
             </div>
 
             <div className="last__home__row">
