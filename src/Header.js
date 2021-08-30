@@ -157,11 +157,12 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
        
        
       </div>
-    
+        
     </div>
 
           <div className="home">
           <div className="home__container">
+       
         <Link to="/products">
             <img
               className="home__image"

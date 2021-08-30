@@ -11,7 +11,8 @@ import { db } from './firebase'
 import {firebaseApp} from './firebase'
 import ShoppingBasketTwoToneIcon from '@material-ui/icons/ShoppingBasketTwoTone';
 
-function Payment({user, cart, emptyBasket}) {
+
+function Payment({user, cart, emptyBasket, loggedIn}) {
 
   let history = useHistory()
 
@@ -158,7 +159,7 @@ function Payment({user, cart, emptyBasket}) {
           <div className="payment__title">
               <h3>Payment Method</h3>
           </div>
-        
+        {loggedIn ?
         <div className="payment__details">
 
           <form onSubmit={handleSubmit}>
@@ -183,8 +184,10 @@ function Payment({user, cart, emptyBasket}) {
 
             {error && <div>{error}</div>}
           </form>
-
+          
         </div>
+        :     
+              <Link to="/login">please sign in</Link>}
       </div>
       </div>
     </div>
@@ -195,7 +198,8 @@ const mapStateToProps = (state) => {
   
   return {
     user: state.user, 
-    cart: state.products.cart
+    cart: state.products.cart, 
+    loggedIn: state.user.loggedIn
   }
 }
 

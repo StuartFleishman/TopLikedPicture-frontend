@@ -1,3 +1,7 @@
+This is a e-commerce store for buying vinyl records. Uses React.js, FireBase, Stripe, and Express.js
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

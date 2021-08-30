@@ -71,11 +71,11 @@ function Checkout({cart, deleteFromBasket, products, loggedIn}) {
         </div>
       </div>
 
-    {loggedIn ?
+  
       <div className="checkout__right">
-          {<Subtotal price={totalPrice} items={totalItems} />}
+          <Subtotal price={totalPrice} items={totalItems} />
       </div>
-            : <h1 style={{color: "white"}}>Please Sign-In To Checkout</h1>}
+          
 
 
     </div>
