@@ -1,4 +1,4 @@
-// const url = `http://127.0.0.1:3001/products`
+
 const url = `https://store-app-2aa0a-default-rtdb.firebaseio.com/`
 
 export const setProducts = (products) => ({type: "GOT_PRODUCTS", payload: products})

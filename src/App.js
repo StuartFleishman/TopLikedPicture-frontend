@@ -21,10 +21,7 @@ import { Elements } from "@stripe/react-stripe-js"
 import Orders from './Orders'
 import OrderHeader from './OrderHeader'
 import CheckOutHeader from './CheckOutHeader'
-// import ProductShow from './ProductShow'
 import SearchHeader from './SearchHeader'
-// import ProductHeader from './ProductHeader'
-// import ProductHome from './ProductHome'
 import Footer from './Footer'
 import ProductContainer from './ProductContainer'
 
