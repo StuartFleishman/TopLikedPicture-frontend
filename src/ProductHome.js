@@ -87,10 +87,7 @@ function ProductHome({ cart, user, loggedIn, products, setProducts, addToBasket}
     return productArray.slice(10,13)
   }
 
-  // const renderMiddleProducts = () => {
-  //   const productArray =  products.map(product => <Product key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
-  //   return productArray.slice(6, 8)
-  // }
+
 
   const renderSecondProducts = () => {
     const productArray =  products.map(product => <Product key={product.id} id={product.id} image={product.image} cart={cart} quantity={product.quantity} name={product.name} price={product.price} description={product.description} addToBasket={findProduct} />)
@@ -113,11 +110,7 @@ function ProductHome({ cart, user, loggedIn, products, setProducts, addToBasket}
           src="https://pngimg.com/uploads/triangle/triangle_PNG105.png"
         />
       </Link>
-    
-      {/* <div className="header__search">
-        <input value={searchBar} onChange={(e) => setSearchBar(e.target.value)} className="header__searchInput" type="text" />
-        <SearchIcon className="header__searchIcon" />
-      </div> */}
+
      
 
       <div className="header__nav">

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import './App.css';
 import Header from './Header'
 import Home from './Home'
 import {
@@ -22,16 +21,16 @@ import { Elements } from "@stripe/react-stripe-js"
 import Orders from './Orders'
 import OrderHeader from './OrderHeader'
 import CheckOutHeader from './CheckOutHeader'
-import ProductShow from './ProductShow'
+// import ProductShow from './ProductShow'
 import SearchHeader from './SearchHeader'
-import ProductHeader from './ProductHeader'
-import ProductHome from './ProductHome'
+// import ProductHeader from './ProductHeader'
+// import ProductHome from './ProductHome'
 import Footer from './Footer'
 import ProductContainer from './ProductContainer'
 
 const promise = loadStripe('pk_test_51JNIcRCZzbqBIQx8Vm4CijT94O04TALJ83gexf8HMEy3xP6VlqGc0Gv7ZjcV2cJTY3ac6raxsxcSqS5eTINtIzJN007wXhcPhD')
 
-const App = ({user, loginUser, logout}) => {
+const App = ({loginUser, logout}) => {
 
   useEffect(() => {
   
@@ -50,9 +49,6 @@ const App = ({user, loginUser, logout}) => {
       <div className="app">
           
           <Switch>
-           <Route path='/admin'> 
-            <Admin />
-          </Route>
           <Route path='/search'> 
             <SearchHeader />
           </Route>
@@ -64,9 +60,6 @@ const App = ({user, loginUser, logout}) => {
           <Home />
           <Footer />
           </Route>
-          <Route path='/home'>
-            <AdminHome />
-          </Route>
           <Route path='/checkout'>
             <CheckOutHeader /> 
             <Checkout />
@@ -75,10 +68,6 @@ const App = ({user, loginUser, logout}) => {
             <OrderHeader/> 
             <Orders />
           </Route>
-          {/* <Route path='/products/:id'>
-            <ProductHeader />
-            <ProductShow />
-          </Route> */}
           <Route path='/product/new'>
             <ProductForm />
           </Route>
@@ -92,20 +81,12 @@ const App = ({user, loginUser, logout}) => {
               <Payment/>
             </Elements>
           </Route>
-    
-          
-          
         </Switch>
       </div>
     </Router>
   );
 }
 
-const mapStateToProps = state => {
-  
-  return {
-    user: state.user
-  }
-}
 
-export default connect(mapStateToProps, {loginUser, logout})(App)
+
+export default connect(null, {loginUser, logout})(App)

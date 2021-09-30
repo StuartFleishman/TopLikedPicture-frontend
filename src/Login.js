@@ -16,7 +16,6 @@ const Login = ({login, message, loginUser}) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    // login(userInput, history)
     auth.signInWithEmailAndPassword(userInput.email, userInput.password)
     .then( auth => {
       if (auth) {

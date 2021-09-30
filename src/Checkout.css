@@ -1,10 +1,10 @@
 .checkout {
   display: flex;
   padding: 400px;
-  /* height: -9000px; */
+
   margin-left: -300px;
   z-index: 1;
-  background-image: url("https://images.unsplash.com/photo-1629666841661-da4438989c4e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80");
+
 
 }
 

@@ -108,11 +108,7 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
         />
       </Link>
     
-      {/* <div className="header__search">
-        <input value={searchBar} onChange={(e) => setSearchBar(e.target.value)} className="header__searchInput" type="text" />
-        <SearchIcon className="header__searchIcon" />
-      </div> */}
-     
+
 
       <div className="header__nav">
         <Link to="/login">
@@ -166,7 +162,7 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
         <Link to="/products">
             <img
               className="home__image"
-              src="https://images.unsplash.com/photo-1625472603517-1b0dc72846ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80"
+              src="https://images.unsplash.com/photo-1629443799478-f58ea6fdb9e6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
               alt=""
             />
             </Link>

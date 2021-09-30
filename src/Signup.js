@@ -18,7 +18,6 @@ function Signup({createUser, loginUser}) {
 
   const handleSubmit = e => {
     e.preventDefault()
-    // createUser(userInput, history)
     auth.createUserWithEmailAndPassword(userInput.email, userInput.password)
     .then((auth) => {
       if (auth) {

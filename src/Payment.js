@@ -52,8 +52,7 @@ function Payment({user, cart, emptyBasket, loggedIn}) {
         url: `/payments/create?total=${finalTotal * 100}`,
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': "https://store-app-2aa0a.web.app/",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
+          'Access-Control-Allow-Origin': "https://store-app-2aa0a.web.app/"
         }
       })
       setClientSecret(response.data.clientSecret)
@@ -123,7 +122,7 @@ function Payment({user, cart, emptyBasket, loggedIn}) {
     })
   }
 
-  console.log(address)
+
 
   const handleChange = e => {
       setDisabled(e.empty)

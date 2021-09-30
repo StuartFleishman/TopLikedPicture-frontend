@@ -102,10 +102,7 @@ function Header({ cart, user, loggedIn, products, setProducts, addToBasket}) {
         />
       </Link>
     
-      {/* <div className="header__search">
-        <input value={searchBar} onChange={(e) => setSearchBar(e.target.value)} className="header__searchInput" type="text" />
-        <SearchIcon className="header__searchIcon" />
-      </div> */}
+
      
 
       <div className="header__nav">
